@@ -18,6 +18,7 @@ import '../widgets/tracing_board.dart';
 import '../widgets/visuals.dart';
 import '../widgets/visuals_extra.dart' show ShadowEmoji;
 import 'celebration_screen.dart';
+import 'gt_result_screen.dart';
 
 const _praise = [
   ('Great job!', '🎉'),
@@ -45,6 +46,12 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
   int? _correct;
   String? _feedback;
   bool _feedbackGood = true;
+
+  /// The weekly GT test: one try per question, no hints, scored at the end.
+  bool get _test => ws.kind == WorksheetKind.gtTest;
+
+  /// Test answers: question index → right or not.
+  final Map<int, bool> _answers = {};
 
   final _segment = ValueNotifier<int>(-1);
   final _readSegment = ValueNotifier<int>(-1);
@@ -77,6 +84,11 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
     // Toddlers can't read: every question is read aloud.
     if ((ws.level ?? Level.grade5).atMost(Level.age3)) return true;
     if (q is ExampleQuestion) return true;
+    // Thinking puzzles for K–2 are read aloud, like the real test.
+    if (ws.kind.category == Category.thinking &&
+        (ws.level ?? Level.grade5).atMost(Level.grade2)) {
+      return true;
+    }
     if (ws.kind.category == Category.reading ||
         ws.kind == WorksheetKind.animalSounds)
       return true;
@@ -140,6 +152,19 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
 
   void _pick(int i) {
     final q = ws.questions[_index] as ChoiceQuestion;
+    if (_test) {
+      // One try, no right/wrong shown: on to the next question.
+      if (_answers.containsKey(_index)) return;
+      HapticFeedback.selectionClick();
+      Speaker.instance.stop();
+      setState(() {
+        _answers[_index] = i == q.answer;
+        _feedback = 'Next one! 👉';
+        _feedbackGood = true;
+      });
+      Future.delayed(const Duration(milliseconds: 700), _next);
+      return;
+    }
     if (_correct != null || _wrong.contains(i)) return;
     if (i == q.answer) {
       HapticFeedback.mediumImpact();
@@ -163,6 +188,10 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
 
   void _next() {
     if (!mounted) return;
+    if (_index + 1 >= ws.questions.length && _test) {
+      _finishTest();
+      return;
+    }
     if (_index + 1 >= ws.questions.length) {
       // Longer worksheets allow a slip or two before losing a star.
       // Worked examples aren't scored.
@@ -207,6 +236,53 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
       _feedback = null;
     });
     _autoSpeak();
+  }
+
+  void _finishTest() {
+    // Score each part (parts start at their "Part 1 of 3" cards).
+    final parts = <(String, int, int)>[];
+    for (var i = 0; i < ws.questions.length; i++) {
+      final q = ws.questions[i];
+      if (q is ExampleQuestion) {
+        parts.add((q.title.split(': ').last, 0, 0));
+      } else if (parts.isNotEmpty) {
+        final (name, right, total) = parts.removeLast();
+        parts.add((name, right + (_answers[i] == true ? 1 : 0), total + 1));
+      }
+    }
+    final total = parts.fold(0, (a, p) => a + p.$3);
+    final right = parts.fold(0, (a, p) => a + p.$2);
+    final pct = total == 0 ? 0 : right / total;
+    final stars = pct >= .9
+        ? 3
+        : pct >= .7
+        ? 2
+        : 1;
+    ProgressScope.read(context)
+        .complete(
+          ws.id,
+          stars,
+          category: Category.thinking,
+          // A test measures; it doesn't change the daily difficulty.
+          adapt: false,
+          kind: ws.kind.name,
+          level: ws.level,
+          questions: total,
+          mistakes: total - right,
+          seconds: _clock.elapsed.inSeconds,
+        )
+        .then((_) {
+          if (!mounted) return;
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (_) => GtResultScreen(
+                worksheet: ws,
+                parts: parts,
+                minutes: (_clock.elapsed.inSeconds / 60).ceil(),
+              ),
+            ),
+          );
+        });
   }
 
   /// Rough-work paper next to maths questions from Grade 1 up.
@@ -317,6 +393,7 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
                               ),
                               ExampleQuestion() => _ExampleView(
                                 q: q,
+                                test: _test,
                                 color: color,
                                 segment: _segment,
                                 onReplay: _speakQuestion,
@@ -403,7 +480,14 @@ class _TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final total = ws.questions.length;
+    // Intro and example cards aren't questions, so they aren't counted.
+    final scored = [
+      for (var i = 0; i < ws.questions.length; i++)
+        if (ws.questions[i] is! ExampleQuestion) i,
+    ];
+    final total = max(1, scored.length);
+    final current = scored.where((i) => i < index).length;
+    final onQuestion = ws.questions[index] is! ExampleQuestion;
     return Row(
       children: [
         BubblyButton(
@@ -434,7 +518,7 @@ class _TopBar extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: TweenAnimationBuilder<double>(
-                  tween: Tween(end: (index + (done ? 1 : 0)) / total),
+                  tween: Tween(end: (current + (done ? 1 : 0)) / total),
                   duration: const Duration(milliseconds: 400),
                   builder: (_, v, _) => LinearProgressIndicator(
                     value: v,
@@ -449,7 +533,7 @@ class _TopBar extends StatelessWidget {
         ),
         const SizedBox(width: 14),
         Text(
-          '${index + 1}/$total',
+          onQuestion ? '${current + 1}/$total' : '$current/$total',
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
         ),
         const SizedBox(width: 14),
@@ -504,7 +588,11 @@ class _ExampleView extends StatelessWidget {
     required this.readSegment,
     required this.onReadAloud,
     required this.onDone,
+    this.test = false,
   });
+
+  /// A part of the GT test starts here (not a worked example).
+  final bool test;
   final ExampleQuestion q;
   final Color color;
   final ValueListenable<int> segment;
@@ -525,7 +613,7 @@ class _ExampleView extends StatelessWidget {
             borderRadius: BorderRadius.circular(99),
           ),
           child: PicLabel(
-            "💡 Let's learn!",
+            test ? '🏆 GT Test' : "💡 Let's learn!",
             style: text.titleMedium?.copyWith(
               fontWeight: FontWeight.w700,
               color: AppColors.ink,
@@ -595,8 +683,10 @@ class _ExampleView extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          icon: const Icon(Icons.thumb_up_alt_rounded),
-          label: const Text("Got it! Let's practice"),
+          icon: Icon(
+            test ? Icons.play_arrow_rounded : Icons.thumb_up_alt_rounded,
+          ),
+          label: Text(test ? "I'm ready! Start" : "Got it! Let's practice"),
         ),
       ],
     );

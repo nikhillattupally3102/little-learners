@@ -754,7 +754,19 @@ enum WorksheetKind {
     Category.thinking,
     Level.kindergarten,
     Level.grade5,
+  ),
+  // The weekly GT test (Sundays): all three kinds of thinking, scored once.
+  gtTest(
+    'Weekly GT Test',
+    '🏆',
+    AppColors.sunshine,
+    Category.thinking,
+    Level.kindergarten,
+    Level.grade5,
   );
+
+  /// Only on Sundays, never in the daily rotation or bonus sheets.
+  bool get weeklyOnly => this == gtTest;
 
   const WorksheetKind(
     this.title,

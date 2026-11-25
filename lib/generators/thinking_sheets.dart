@@ -36,8 +36,8 @@ List<X> _upTo<X>(Gen g, List<X> all, Level Function(X) from) {
 
 // =============================================================== verbal
 
-List<Question> wordThinking(Gen g) => g.mix(
-  g.count,
+List<Question> wordThinking(Gen g, [int? n]) => g.mix(
+  n ?? g.count,
   _pictures(g)
       ? [
           () => _pictureAnalogy(g),
@@ -149,8 +149,8 @@ Question _wordGroup(Gen g) {
 
 // ========================================================= quantitative
 
-List<Question> numberThinking(Gen g) => g.mix(
-  g.count,
+List<Question> numberThinking(Gen g, [int? n]) => g.mix(
+  n ?? g.count,
   _pictures(g)
       ? [() => _pictureNumberAnalogy(g), () => _balance(g), () => _series(g)]
       : [() => _numberAnalogy(g), () => _numberPuzzle(g), () => _series(g)],
@@ -518,7 +518,7 @@ Question _series(Gen g) {
 
 // ============================================================ nonverbal
 
-List<Question> shapeThinking(Gen g) => g.mix(g.count, [
+List<Question> shapeThinking(Gen g, [int? n]) => g.mix(n ?? g.count, [
   () => g.atLeast(Level.grade4) && g.chance(.5) ? _matrix3(g) : _matrix2(g),
   () => _figureGroup(g),
   () => _paperFold(g),
@@ -820,4 +820,49 @@ Question _paperFold(Gen g) {
       'What does it look like when it is opened?',
     ],
   );
+}
+
+// ======================================================== weekly GT test
+
+/// Questions in the weekly GT test: 15 in Kindergarten, 5 more each grade.
+int gtTestLength(Level level) =>
+    15 + 5 * max(0, level.index - Level.kindergarten.index);
+
+/// The test's three parts, in order: (title, emoji).
+const gtSections = [
+  ('Word Thinking', '💭'),
+  ('Number Thinking', '🧮'),
+  ('Shape Thinking', '🔷'),
+];
+
+/// The weekly GT test: three parts (words, numbers, shapes), like the
+/// CogAT's three batteries, each opened by a short "Part 1 of 3" card.
+List<Question> gtTest(Gen g) {
+  final total = gtTestLength(g.level);
+  final sizes = [
+    for (var i = 0; i < 3; i++) total ~/ 3 + (i < total % 3 ? 1 : 0),
+  ];
+  final parts = [
+    (int n) => wordThinking(g, n),
+    (int n) => numberThinking(g, n),
+    (int n) => shapeThinking(g, n),
+  ];
+  final young = g.atMost(Level.grade2);
+  return [
+    for (var i = 0; i < 3; i++) ...[
+      ExampleQuestion(
+        title: 'Part ${i + 1} of 3: ${gtSections[i].$1}',
+        visual: EmojiVisual(gtSections[i].$2, '${sizes[i]} questions'),
+        steps: [
+          if (i == 0)
+            young
+                ? 'Listen to each question, then tap your answer.'
+                : 'Read each question carefully, then tap your answer.',
+          'You get one try for each question, so take your time.',
+          if (i == 0) 'Do your best. It is fine not to know them all!',
+        ],
+      ),
+      ...parts[i](sizes[i]),
+    ],
+  ];
 }

@@ -124,6 +124,21 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                if (level.kinds.contains(WorksheetKind.gtTest) &&
+                    !WorksheetGenerator.isGtDay(today))
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 4),
+                      child: PicLabel(
+                        _nextGtTest(today),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.ink.withValues(alpha: .7),
+                        ),
+                      ),
+                    ),
+                  ),
                 if (allDone) const SliverToBoxAdapter(child: _AllDoneBanner()),
                 _grid(tiles, bottom: 12),
                 SliverToBoxAdapter(
@@ -157,6 +172,14 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+/// "🏆 Weekly GT test: this Sunday" (or tomorrow).
+String _nextGtTest(DateTime today) {
+  final days = (DateTime.sunday - today.weekday) % 7;
+  return days == 1
+      ? '🏆 Weekly GT test: tomorrow!'
+      : '🏆 Weekly GT test: this Sunday (in $days days)';
 }
 
 /// A grid of plan cards that pop in one after another.
@@ -362,15 +385,22 @@ class _WorksheetCard extends StatelessWidget {
       emoji: worksheet.emoji,
       title: worksheet.title,
       // Toddlers play games; "Puzzles" or "Math" means nothing to them.
-      subtitle: kind == WorksheetKind.tReview
+      subtitle: kind == WorksheetKind.gtTest
+          ? '🧠 Words · numbers · shapes'
+          : kind == WorksheetKind.tReview
           ? "🔁 Yesterday's things"
           : base.atMost(Level.age3)
           ? '🎈 Play'
           : '${kind.category.emoji} ${kind.category.title}',
-      footer:
-          '$puzzles ${base.atMost(Level.age3) ? 'quick games' : 'puzzles'}${_adapted == null ? '' : '  ·  $_adapted'}  ▶',
+      footer: kind == WorksheetKind.gtTest
+          ? '$puzzles questions · one try each  ▶'
+          : '$puzzles ${base.atMost(Level.age3) ? 'quick games' : 'puzzles'}${_adapted == null ? '' : '  ·  $_adapted'}  ▶',
       stars: stars,
-      ribbon: bonus ? 'BONUS' : null,
+      ribbon: bonus
+          ? 'BONUS'
+          : kind == WorksheetKind.gtTest
+          ? 'SUNDAY'
+          : null,
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(
           builder: (_) => WorksheetScreen(worksheet: worksheet),

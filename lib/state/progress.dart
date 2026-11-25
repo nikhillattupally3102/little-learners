@@ -240,6 +240,7 @@ class Progress extends ChangeNotifier {
     int questions = 0,
     int mistakes = 0,
     int seconds = 0,
+    bool adapt = true,
   }) async {
     final p = active;
     if (p == null) return 0;
@@ -262,7 +263,9 @@ class Progress extends ChangeNotifier {
       ..._unsynced(p.id),
       result.id,
     ]);
-    final change = category == null ? 0 : await _adapt(p, category, earned);
+    final change = category == null || !adapt
+        ? 0
+        : await _adapt(p, category, earned);
     notifyListeners();
     _scheduleSync();
     return change;

@@ -30,6 +30,13 @@ learning cards and the worksheets so each thing is met several ways:
 - **K–Grade 5**: 1 learning session, then 2 Math, 2 Reading, 1 Science,
   1 Puzzle, 1 Writing, 1 Geography and 1 Thinking Skills, rotating daily.
   Same day = same sheets on every device.
+- **Weekly GT test (Sundays, K–5)**: first in the plan, instead of that
+  day's Thinking Skills sheet. 15 questions in K, then 20, 25, 30, 35, 40
+  up to Grade 5, in three parts like the CogAT (Word, Number, Shape
+  thinking), each opened by a "Part 1 of 3" card. One try per question, no
+  hints; the score and each part's score are shown at the end, with the
+  weakest part to practise. It is saved like any sheet (Thinking Skills)
+  but doesn't change the daily difficulty. Other days show when it's next.
 - **Learn more** (below the plan): picture-card sessions to open any time,
   chosen by age (`lib/generators/learn_more.dart`). Age 2–3: letters,
   numbers, shapes, colors, animals (+ fruits for Age 3); Pre-K adds sight
@@ -38,7 +45,7 @@ learning cards and the worksheets so each thing is met several ways:
 - A bonus sheet (not for Age 2) and the rewards pill (if grown-ups enabled rewards).
 
 ## Worksheets
-**85 worksheet kinds** across 7 subjects. Each has a level range and gets
+**86 worksheet kinds** across 7 subjects. Each has a level range and gets
 harder with the level.
 
 Per level: Age 2: 3 · Age 3: 16 · Pre-K: 25 · K: 29 · G1: 41 ·

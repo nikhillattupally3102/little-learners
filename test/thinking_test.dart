@@ -2,6 +2,8 @@ import 'package:flutter/widgets.dart' show StringCharacters;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:little_learners/content/daily_focus.dart' show isDrawn;
 import 'package:little_learners/content/figures.dart';
+import 'package:little_learners/generators/gen.dart';
+import 'package:little_learners/generators/thinking_sheets.dart';
 import 'package:little_learners/models/generator.dart';
 import 'package:little_learners/models/models.dart';
 
@@ -231,6 +233,66 @@ void main() {
             }
           }
         }
+      }
+    }
+  });
+
+  test('the GT test is on Sundays only, first in the plan, for K–5', () {
+    for (var d = 0; d < 28; d++) {
+      final date = start.add(Duration(days: d));
+      final sunday = date.weekday == DateTime.sunday;
+      for (final level in Level.values) {
+        final kinds = WorksheetGenerator.kindsForDay(date, level);
+        final bonus = WorksheetGenerator.bonusForDay(
+          date,
+          level,
+        ).map((w) => w.kind);
+        expect(bonus, isNot(contains(WorksheetKind.gtTest)));
+        if (sunday && level.atLeast(Level.kindergarten)) {
+          expect(
+            kinds.first,
+            WorksheetKind.gtTest,
+            reason: '${level.name} $date',
+          );
+          expect(kinds.where((k) => k.category == Category.thinking).length, 1);
+        } else {
+          expect(
+            kinds,
+            isNot(contains(WorksheetKind.gtTest)),
+            reason: '${level.name} $date',
+          );
+        }
+      }
+    }
+  });
+
+  test('GT test: 15, 20, 25… questions in three parts', () {
+    final sunday = DateTime(2026, 11, 29);
+    expect(sunday.weekday, DateTime.sunday);
+    final expected = {
+      Level.kindergarten: 15, Level.grade1: 20, Level.grade2: 25, //
+      Level.grade3: 30, Level.grade4: 35, Level.grade5: 40,
+    };
+    for (final MapEntry(key: level, value: n) in expected.entries) {
+      for (var w = 0; w < 8; w++) {
+        final date = sunday.add(Duration(days: 7 * w));
+        final ws = WorksheetGenerator.forDay(date, level).first;
+        expect(ws.kind, WorksheetKind.gtTest);
+        expect(ws.level, level);
+        final scored = ws.questions.whereType<ChoiceQuestion>().toList();
+        expect(scored.length, n, reason: '${level.name} week $w');
+        expect(gtTestLength(level), n);
+        // Three parts, each opened by its intro card.
+        final intros = ws.questions.whereType<ExampleQuestion>().toList();
+        expect(intros.map((q) => q.title), [
+          'Part 1 of 3: Word Thinking',
+          'Part 2 of 3: Number Thinking',
+          'Part 3 of 3: Shape Thinking',
+        ]);
+        expect(ws.questions.first, isA<ExampleQuestion>());
+        // No question twice.
+        final keys = scored.map(Gen.fingerprint).toSet();
+        expect(keys.length, n);
       }
     }
   });

@@ -42,7 +42,8 @@ class WorksheetGenerator {
     for (final kind in kindsForDay(date, level)) {
       final ws = build(
         date,
-        levelFor?.call(kind) ?? level,
+        // The GT test is always at the child's own level.
+        kind.weeklyOnly ? level : levelFor?.call(kind) ?? level,
         kind,
         avoid: avoid,
         maxMatches: matchBudget > 0 || _needsMatch(kind) ? 1 : 0,
@@ -58,6 +59,9 @@ class WorksheetGenerator {
       const {WorksheetKind.matchPairs, WorksheetKind.wordMatch}.contains(kind);
 
   static int _day(DateTime date) => dayNumber(date);
+
+  /// The weekly GT test is on Sundays.
+  static bool isGtDay(DateTime date) => date.weekday == DateTime.sunday;
 
   /// Toddlers' plan is the same shape every day — only its content
   /// (today's letters, numbers and theme) changes.
@@ -95,13 +99,20 @@ class WorksheetGenerator {
       }
       final pool = [
         for (final k in level.kinds)
-          if (k.category == category && !inCore.contains(k)) k,
+          if (k.category == category && !inCore.contains(k) && !k.weeklyOnly)
+            k,
       ]..shuffle(Random(level.index * 13 + category.index));
       if (pool.isEmpty) continue;
       final count = min(category.dailyCount - slots.length, pool.length);
       for (var i = 0; i < count; i++) {
         kinds.add(pool[(day * count + i) % pool.length]);
       }
+    }
+    // Sundays: the weekly GT test, first, instead of the Thinking sheet.
+    if (isGtDay(date) && level.kinds.contains(WorksheetKind.gtTest)) {
+      kinds
+        ..removeWhere((k) => k.category == Category.thinking)
+        ..insert(0, WorksheetKind.gtTest);
     }
     return kinds;
   }
@@ -129,7 +140,8 @@ class WorksheetGenerator {
     for (final category in categories) {
       final pool = [
         for (final k in level.kinds)
-          if (k.category == category && !today.contains(k)) k,
+          if (k.category == category && !today.contains(k) && !k.weeklyOnly)
+            k,
       ];
       if (pool.isEmpty) continue;
       final kind = pool[day % pool.length];
@@ -321,6 +333,7 @@ class WorksheetGenerator {
       WorksheetKind.wordThinking => wordThinking(g),
       WorksheetKind.numberThinking => numberThinking(g),
       WorksheetKind.shapeThinking => shapeThinking(g),
+      WorksheetKind.gtTest => gtTest(g),
     };
     return Worksheet(
       id: idFor(date, kind),
