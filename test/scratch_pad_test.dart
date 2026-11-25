@@ -8,7 +8,11 @@ import 'package:little_learners/widgets/scratch_pad.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  Future<void> open(WidgetTester tester, Level level, WorksheetKind kind) async {
+  Future<void> open(
+    WidgetTester tester,
+    Level level,
+    WorksheetKind kind,
+  ) async {
     SharedPreferences.setMockInitialValues({});
     tester.view.physicalSize = const Size(1180, 820);
     tester.view.devicePixelRatio = 1;

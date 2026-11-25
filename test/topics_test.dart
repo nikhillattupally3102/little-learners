@@ -8,8 +8,16 @@ void main() {
   test('every topic has at least 10 distinct items', () {
     for (final t in topics) {
       expect(t.items.length, greaterThanOrEqualTo(10), reason: t.id);
-      expect(t.items.map((i) => i.name).toSet().length, t.items.length, reason: '${t.id} duplicate name');
-      expect(t.items.map((i) => i.emoji).toSet().length, t.items.length, reason: '${t.id} duplicate emoji');
+      expect(
+        t.items.map((i) => i.name).toSet().length,
+        t.items.length,
+        reason: '${t.id} duplicate name',
+      );
+      expect(
+        t.items.map((i) => i.emoji).toSet().length,
+        t.items.length,
+        reason: '${t.id} duplicate emoji',
+      );
     }
   });
 
@@ -18,7 +26,11 @@ void main() {
       for (final level in Level.values) {
         if (t.toddlerOnly && !level.atMost(Level.age3)) continue;
         for (var d = 0; d < 15; d++) {
-          final ws = WorksheetGenerator.buildTopicQuiz(DateTime(2026, 2, 1).add(Duration(days: d)), level, t);
+          final ws = WorksheetGenerator.buildTopicQuiz(
+            DateTime(2026, 2, 1).add(Duration(days: d)),
+            level,
+            t,
+          );
           if (level.atMost(Level.age3)) {
             // Toddlers: picture taps only — no matching, nothing to read.
             expect(ws.questions.length, greaterThanOrEqualTo(3));
@@ -30,12 +42,18 @@ void main() {
             expect(match.left.length, inInclusiveRange(4, 8));
           } else {
             // Grade 3+: no picture matching, a full set of questions.
-            expect(ws.questions.length, greaterThanOrEqualTo(8));
+            expect(ws.questions.length, greaterThanOrEqualTo(7));
             expect(ws.questions.whereType<MatchQuestion>(), isEmpty);
           }
           for (final q in ws.questions.whereType<ChoiceQuestion>()) {
-            expect(q.choices.map((c) => '${c.label}${c.shape}${c.color}').toSet().length, q.choices.length,
-                reason: '${t.id} ${q.prompt}');
+            expect(
+              q.choices
+                  .map((c) => '${c.label}${c.shape}${c.color}')
+                  .toSet()
+                  .length,
+              q.choices.length,
+              reason: '${t.id} ${q.prompt}',
+            );
             expect(q.answer, inInclusiveRange(0, q.choices.length - 1));
           }
         }
@@ -70,12 +88,30 @@ void main() {
         final f = more![i.name];
         expect(f, isNotNull, reason: '${t.id}/${i.name}');
         // Clues must not give the answer away.
-        expect(f!.toLowerCase().contains(i.name.toLowerCase()), isFalse, reason: '${t.id}/${i.name}: $f');
+        expect(
+          f!.toLowerCase().contains(i.name.toLowerCase()),
+          isFalse,
+          reason: '${t.id}/${i.name}: $f',
+        );
       }
-      expect(more!.keys.toSet(), t.items.map((i) => i.name).toSet(), reason: t.id);
+      expect(
+        more!.keys.toSet(),
+        t.items.map((i) => i.name).toSet(),
+        reason: t.id,
+      );
       final bank = topicQuestions[t.id]!;
-      for (final l in [Level.grade1, Level.grade2, Level.grade3, Level.grade4, Level.grade5]) {
-        expect(bank.where((f) => f.suits(l)).length, greaterThanOrEqualTo(3), reason: '${t.id} ${l.name}');
+      for (final l in [
+        Level.grade1,
+        Level.grade2,
+        Level.grade3,
+        Level.grade4,
+        Level.grade5,
+      ]) {
+        expect(
+          bank.where((f) => f.suits(l)).length,
+          greaterThanOrEqualTo(3),
+          reason: '${t.id} ${l.name}',
+        );
       }
       for (final f in bank) {
         expect(f.wrong.contains(f.answer), isFalse, reason: f.question);
@@ -90,9 +126,21 @@ void main() {
         String sig(Question q) => q is ChoiceQuestion
             ? '${q.prompt}|${q.speech?.join(' ')}|${q.choices[q.answer].label}'
             : (q as MatchQuestion).prompt;
-        final k = WorksheetGenerator.buildTopicQuiz(day, Level.kindergarten, t).questions.map(sig).toSet();
-        final g5 = WorksheetGenerator.buildTopicQuiz(day, Level.grade5, t).questions.map(sig).toSet();
-        expect(k.intersection(g5).length, lessThanOrEqualTo(1), reason: '${t.id} ${k.intersection(g5)}');
+        final k = WorksheetGenerator.buildTopicQuiz(
+          day,
+          Level.kindergarten,
+          t,
+        ).questions.map(sig).toSet();
+        final g5 = WorksheetGenerator.buildTopicQuiz(
+          day,
+          Level.grade5,
+          t,
+        ).questions.map(sig).toSet();
+        expect(
+          k.intersection(g5).length,
+          lessThanOrEqualTo(1),
+          reason: '${t.id} ${k.intersection(g5)}',
+        );
       }
     }
   });

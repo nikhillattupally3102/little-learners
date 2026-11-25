@@ -15,7 +15,11 @@ void main() {
   test('toddlers only get toddler activities', () {
     for (final level in [Level.age2, Level.age3]) {
       for (final k in level.kinds) {
-        expect(k.name.startsWith('t'), isTrue, reason: '${level.name}: ${k.name}');
+        expect(
+          k.name.startsWith('t'),
+          isTrue,
+          reason: '${level.name}: ${k.name}',
+        );
       }
     }
     // …and older children never get them.
@@ -33,13 +37,14 @@ void main() {
           ...WorksheetGenerator.bonusForDay(date, level),
           // Every learning session ends in a short picture game.
           for (final t in topicsForDay(date, level))
-              WorksheetGenerator.buildTopicQuiz(date, level, t),
+            WorksheetGenerator.buildTopicQuiz(date, level, t),
           // …and so does every "Learn more" session.
           for (final m in learnMoreFor(level, date))
             WorksheetGenerator.buildLearnMoreQuiz(date, level, m),
         ];
         for (final ws in sheets) {
-          final lettersOk = ws.kind == WorksheetKind.tLetters ||
+          final lettersOk =
+              ws.kind == WorksheetKind.tLetters ||
               ws.kind == WorksheetKind.tNumbers ||
               ws.kind == WorksheetKind.tReview ||
               ws.id.contains('_topic_abc') ||
@@ -51,23 +56,36 @@ void main() {
           for (final q in ws.questions) {
             switch (q) {
               case ChoiceQuestion():
-                expect(q.choices.length, level == Level.age2 ? 2 : 3,
-                    reason: '${ws.kind.name}: ${q.prompt}');
+                expect(
+                  q.choices.length,
+                  level == Level.age2 ? 2 : 3,
+                  reason: '${ws.kind.name}: ${q.prompt}',
+                );
                 for (final c in q.choices) {
                   if (c.label == null || lettersOk) continue;
                   if (c.label!.startsWith('shape:')) continue;
-                  expect(letters.hasMatch(c.label!), isFalse,
-                      reason: '${ws.kind.name}: "${q.prompt}" → ${c.label}');
+                  expect(
+                    letters.hasMatch(c.label!),
+                    isFalse,
+                    reason: '${ws.kind.name}: "${q.prompt}" → ${c.label}',
+                  );
                 }
-                expect(q.visual is TextVisual || q.visual is PassageVisual,
-                    isFalse, reason: '${ws.kind.name}: ${q.prompt}');
+                expect(
+                  q.visual is TextVisual || q.visual is PassageVisual,
+                  isFalse,
+                  reason: '${ws.kind.name}: ${q.prompt}',
+                );
               case MatchQuestion():
                 for (final i in [...q.left, ...q.right]) {
                   expect(i.text, isEmpty, reason: ws.kind.name);
                 }
               case TraceQuestion():
-                expect(tracing && level == Level.age3, isTrue,
-                    reason: 'Only Age 3 traces, in its tracing sheets (${ws.kind.name})');
+                expect(
+                  tracing && level == Level.age3,
+                  isTrue,
+                  reason:
+                      'Only Age 3 traces, in its tracing sheets (${ws.kind.name})',
+                );
               case ExampleQuestion():
                 fail('No worked examples for toddlers (${ws.kind.name})');
             }
@@ -84,17 +102,20 @@ void main() {
       expect(learn.map((t) => t.id), ['abc', 'numbers', isNotNull]);
       expect(learn.last.items.length, toddlerThemeSize);
       final sheets = WorksheetGenerator.forDay(date, level);
-      // 3 learn-and-play sessions + review (+ tracing for Age 3):
-      // 4 tiles for Age 2, 5 for Age 3; about 5 things in each for Age 3.
+      // Mostly learning: Age 2 has its 3 learn-and-play sessions; Age 3
+      // adds tracing and a review (5 tiles, about 5 things in each).
       expect(sheets.map((w) => w.kind), [
-        if (level == Level.age3) WorksheetKind.tTrace,
-        WorksheetKind.tReview,
+        if (level == Level.age3) ...[
+          WorksheetKind.tTrace,
+          WorksheetKind.tReview,
+        ],
       ]);
-      expect(learn.length + sheets.length, level == Level.age2 ? 4 : 5);
+      expect(learn.length + sheets.length, level == Level.age2 ? 3 : 5);
       final per = level == Level.age2 ? 3 : 5;
       for (final ws in [
         ...sheets.where((w) => w.kind == WorksheetKind.tReview),
-        for (final t in learn) WorksheetGenerator.buildTopicQuiz(date, level, t),
+        for (final t in learn)
+          WorksheetGenerator.buildTopicQuiz(date, level, t),
       ]) {
         expect(ws.questions.length, per, reason: ws.title);
       }
@@ -114,8 +135,10 @@ void main() {
         final sheets = [
           for (final t in topicsForDay(day(d), level))
             WorksheetGenerator.buildTopicQuiz(day(d), level, t),
-          ...WorksheetGenerator.forDay(day(d), level)
-              .where((w) => w.kind != WorksheetKind.tReview),
+          ...WorksheetGenerator.forDay(
+            day(d),
+            level,
+          ).where((w) => w.kind != WorksheetKind.tReview),
         ];
         for (final ws in sheets) {
           final kind = ws.id.contains('_topic_abc')
@@ -129,7 +152,11 @@ void main() {
             if (kind == WorksheetKind.tLetters && q is ChoiceQuestion) {
               final labels = q.choices.map((c) => c.label).toSet();
               if (labels.every((l) => l!.length == 1)) {
-                expect(names.containsAll(labels), isTrue, reason: '$labels vs $names');
+                expect(
+                  names.containsAll(labels),
+                  isTrue,
+                  reason: '$labels vs $names',
+                );
               }
             }
             if (kind == WorksheetKind.tNumbers &&
@@ -165,9 +192,18 @@ void main() {
       }
       // Next time this theme comes round (5 days on), mostly new items.
       if (a.theme == ToddlerTheme.animals || a.theme == ToddlerTheme.food) {
-        final next = ToddlerFocus.of(day(d + ToddlerTheme.values.length), Level.age2);
-        final again = next.items.where((i) => a.items.any((x) => x.name == i.name));
-        expect(again, isEmpty, reason: '${a.theme}: ${again.map((i) => i.name)}');
+        final next = ToddlerFocus.of(
+          day(d + ToddlerTheme.values.length),
+          Level.age2,
+        );
+        final again = next.items.where(
+          (i) => a.items.any((x) => x.name == i.name),
+        );
+        expect(
+          again,
+          isEmpty,
+          reason: '${a.theme}: ${again.map((i) => i.name)}',
+        );
       }
     }
   });
@@ -175,7 +211,9 @@ void main() {
   test('letters go through A–Z in order; numbers stay in range', () {
     final seen = <String>{};
     for (var d = 0; d < 13; d++) {
-      seen.addAll(ToddlerFocus.of(day(d), Level.age2).letters.map((l) => l.name));
+      seen.addAll(
+        ToddlerFocus.of(day(d), Level.age2).letters.map((l) => l.name),
+      );
       for (final n in ToddlerFocus.of(day(d), Level.age2).numbers) {
         expect(int.parse(n.name), inInclusiveRange(1, 5));
       }
@@ -188,26 +226,41 @@ void main() {
     expect(topics.where((t) => t.id == 'animals'), isEmpty);
   });
 
-  test('Age 2 plays with exactly what it just learned, and reviews yesterday', () {
-    for (var d = 1; d < 30; d++) {
-      final f = ToddlerFocus.of(day(d), Level.age2);
-      final y = ToddlerFocus.of(day(d - 1), Level.age2);
-      for (final t in topicsForDay(day(d), Level.age2)) {
-        final quiz = WorksheetGenerator.buildTopicQuiz(day(d), Level.age2, t);
-        expect(quiz.questions.length, 3, reason: t.id);
-        if (t.id == 'abc') {
-          for (final q in quiz.questions.cast<ChoiceQuestion>()) {
-            expect(f.letters.map((l) => l.name), contains(q.choices[q.answer].label));
+  test(
+    'Age 2 plays with exactly what it just learned; Age 3 reviews yesterday',
+    () {
+      for (var d = 1; d < 30; d++) {
+        final f = ToddlerFocus.of(day(d), Level.age2);
+        final y = ToddlerFocus.of(day(d - 1), Level.age2);
+        for (final t in topicsForDay(day(d), Level.age2)) {
+          final quiz = WorksheetGenerator.buildTopicQuiz(day(d), Level.age2, t);
+          expect(quiz.questions.length, 3, reason: t.id);
+          if (t.id == 'abc') {
+            for (final q in quiz.questions.cast<ChoiceQuestion>()) {
+              expect(
+                f.letters.map((l) => l.name),
+                contains(q.choices[q.answer].label),
+              );
+            }
           }
         }
+        expect(WorksheetGenerator.forDay(day(d), Level.age2), isEmpty);
+        final y3 = ToddlerFocus.of(day(d - 1), Level.age3);
+        final review = WorksheetGenerator.forDay(day(d), Level.age3).last;
+        expect(review.kind, WorksheetKind.tReview);
+        final letterQ = review.questions.cast<ChoiceQuestion>().where(
+          (q) => q.choices.every(
+            (c) => c.label != null && RegExp(r'^[A-Z]$').hasMatch(c.label!),
+          ),
+        );
+        for (final q in letterQ) {
+          expect(
+            y3.letters.map((l) => l.name),
+            contains(q.choices[q.answer].label),
+          );
+        }
+        expect(y.letters, hasLength(2));
       }
-      final review = WorksheetGenerator.forDay(day(d), Level.age2).single;
-      expect(review.questions.length, 3);
-      final letterQ = review.questions.cast<ChoiceQuestion>().where(
-          (q) => q.choices.every((c) => c.label != null && RegExp(r'^[A-Z]$').hasMatch(c.label!)));
-      for (final q in letterQ) {
-        expect(y.letters.map((l) => l.name), contains(q.choices[q.answer].label));
-      }
-    }
-  });
+    },
+  );
 }

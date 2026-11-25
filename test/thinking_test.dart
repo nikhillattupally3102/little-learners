@@ -16,21 +16,21 @@ void main() {
   final start = DateTime(2026, 11, 1);
   final grades = Level.values.where((l) => l.atLeast(Level.kindergarten));
 
-  test('K–5 get one Thinking Skills sheet a day; younger children none', () {
+  test('Thinking Skills takes turns on K–5 plans; never for younger', () {
+    var days = 0;
     for (var d = 0; d < 30; d++) {
       final date = start.add(Duration(days: d));
       for (final level in Level.values) {
-        final n = WorksheetGenerator.forDay(
+        final n = WorksheetGenerator.kindsForDay(
           date,
           level,
-        ).where((w) => w.kind.category == Category.thinking).length;
-        expect(
-          n,
-          level.atLeast(Level.kindergarten) ? 1 : 0,
-          reason: level.name,
-        );
+        ).where((k) => k.category == Category.thinking).length;
+        expect(n, lessThanOrEqualTo(1), reason: level.name);
+        if (!level.atLeast(Level.kindergarten)) expect(n, 0);
+        if (level == Level.grade3 && n == 1) days++;
       }
     }
+    expect(days, greaterThan(5));
   });
 
   test('every puzzle is well formed, at every grade, for 90 days', () {
@@ -263,12 +263,12 @@ void main() {
     }
   });
 
-  test('GT test: 15, 20, 25… questions in three parts', () {
+  test('GT test: 10, 15, then 20 questions, in three parts', () {
     final sunday = DateTime(2026, 11, 29);
     expect(sunday.weekday, DateTime.sunday);
     final expected = {
-      Level.kindergarten: 15, Level.grade1: 20, Level.grade2: 25, //
-      Level.grade3: 30, Level.grade4: 35, Level.grade5: 40,
+      Level.kindergarten: 10, Level.grade1: 15, Level.grade2: 20, //
+      Level.grade3: 20, Level.grade4: 20, Level.grade5: 20,
     };
     for (final MapEntry(key: level, value: n) in expected.entries) {
       for (var w = 0; w < 8; w++) {

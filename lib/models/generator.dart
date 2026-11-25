@@ -69,17 +69,16 @@ class WorksheetGenerator {
       isGtDay(date) && level.kinds.contains(WorksheetKind.gtTest);
 
   /// Toddlers' plan is the same shape every day — only its content
-  /// (today's letters, numbers and theme) changes.
+  /// (today's letters, numbers and theme) changes. Mostly learning: Age 2
+  /// has just its 3 learning sessions (each ending in a few games); Age 3
+  /// adds tracing and a review of yesterday (5 tiles).
   static const _toddlerPlan = {
-    // Letters, numbers and theme games come at the end of their learning
-    // sessions. Age 2 adds a review of yesterday (4 tiles); Age 3 also
-    // traces today's letters and numbers (5 tiles).
-    Level.age2: [WorksheetKind.tReview],
+    Level.age2: <WorksheetKind>[],
     Level.age3: [WorksheetKind.tTrace, WorksheetKind.tReview],
   };
 
-  /// Sheets on the plan every day for a level. Kinds in one slot take turns
-  /// (one per day); the rest of each category rotates as usual.
+  /// Pre-K: the learning session plus these 4 every day (5 tiles). Kinds in
+  /// one slot take turns, one per day.
   static const _core = {
     Level.preK: [
       [WorksheetKind.addition, WorksheetKind.subtraction],
@@ -89,29 +88,61 @@ class WorksheetGenerator {
     ],
   };
 
-  /// Which kinds of worksheet are on today's plan.
+  /// K–Grade 5: subjects on every day's plan, and how many more subjects
+  /// take turns (from [_rotating]). With the learning session: K 5 tiles,
+  /// Grades 1–2 6, Grade 3 7, Grades 4–5 8.
+  static const _gradePlan = <Level, (List<Category>, int)>{
+    Level.kindergarten: ([Category.math, Category.reading], 2),
+    Level.grade1: ([Category.math, Category.reading, Category.science], 2),
+    Level.grade2: ([Category.math, Category.reading, Category.science], 2),
+    Level.grade3: ([Category.math, Category.reading, Category.science], 3),
+    Level.grade4: (
+      [Category.math, Category.math, Category.reading, Category.science],
+      3,
+    ),
+    Level.grade5: (
+      [Category.math, Category.math, Category.reading, Category.science],
+      3,
+    ),
+  };
+
+  /// Subjects that take turns on the grade plans.
+  static const _rotating = [
+    Category.science,
+    Category.puzzles,
+    Category.writing,
+    Category.geography,
+    Category.thinking,
+  ];
+
   static List<WorksheetKind> kindsForDay(DateTime date, Level level) {
     // Sundays (K–5): the weekly GT test is the whole day's work.
     if (gtDayFor(date, level)) return const [WorksheetKind.gtTest];
     final toddler = _toddlerPlan[level];
     if (toddler != null) return toddler;
     final day = _day(date);
-    final core = _core[level] ?? const <List<WorksheetKind>>[];
-    final inCore = {for (final slot in core) ...slot};
+    final core = _core[level];
+    if (core != null) return [for (final slot in core) slot[day % slot.length]];
+    final (fixed, extra) = _gradePlan[level]!;
+    final turns = [
+      for (final c in _rotating)
+        if (!fixed.contains(c)) c,
+    ];
+    final categories = [
+      ...fixed,
+      for (var i = 0; i < extra; i++) turns[(day * extra + i) % turns.length],
+    ];
+    // Each subject's kinds take turns too (two math sheets: two different).
     final kinds = <WorksheetKind>[];
     for (final category in Category.values) {
-      final slots = core.where((s) => s.first.category == category).toList();
-      for (final slot in slots) {
-        kinds.add(slot[day % slot.length]);
-      }
+      final times = categories.where((c) => c == category).length;
+      if (times == 0) continue;
       final pool = [
         for (final k in level.kinds)
-          if (k.category == category && !inCore.contains(k) && !k.weeklyOnly) k,
+          if (k.category == category && !k.weeklyOnly) k,
       ]..shuffle(Random(level.index * 13 + category.index));
-      if (pool.isEmpty) continue;
-      final count = min(category.dailyCount - slots.length, pool.length);
-      for (var i = 0; i < count; i++) {
-        kinds.add(pool[(day * count + i) % pool.length]);
+      for (var i = 0; i < min(times, pool.length); i++) {
+        kinds.add(pool[(day * times + i) % pool.length]);
       }
     }
     return kinds;

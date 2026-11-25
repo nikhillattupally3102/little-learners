@@ -16,33 +16,40 @@ One blended daily plan per child. The youngest levels follow a fixed daily
 curriculum ("today's focus", `lib/content/daily_focus.dart`), shared by the
 learning cards and the worksheets so each thing is met several ways:
 
-- **Age 2** (4 tiles): Letters (2 a day, A–Z in order), Numbers (2 a day,
-  1–5) and today's theme — 6 animals, colors, shapes, fruits & veggies or
-  vehicles. Each tile is picture cards, then 3 quick picture games on the
-  same things, each shown a different way (heard, same picture, shadow,
-  sound, big/small…). Plus "Remember?": yesterday's letter, number and item.
-  The theme changes every day; when it comes back it brings the next 6.
+- **Age 2** (3 tiles, all learning): Letters (2 a day, A–Z in order),
+  Numbers (2 a day, 1–5) and today's theme — 6 animals, colors, shapes,
+  fruits & veggies or vehicles. Each tile is picture cards, then 3 quick
+  picture games on the same things, each shown a different way. The theme
+  changes every day; when it comes back it brings the next 6.
 - **Age 3** (5 tiles): the same with 3 letters and 3 numbers (1–10) a day
-  and 5 games per tile, plus Trace (today's letters and numbers).
-- **Pre-K**: 2 sight words (Dolch pre-primer) and 2 three-letter words a
-  day, plus yesterday's for review. Sight Words, Sound It Out and Trace &
-  Write use only these. Add or Take Away (within 5) every day.
-- **K–Grade 5**: 1 learning session, then 2 Math, 2 Reading, 1 Science,
-  1 Puzzle, 1 Writing, 1 Geography and 1 Thinking Skills, rotating daily.
+  and 5 games per tile, plus Trace (today's letters and numbers) and
+  "Remember?" (yesterday's letters, numbers and things).
+- **Pre-K** (5 tiles): the learning session, then Add or Take Away (within
+  5), Sight Words, Sound It Out and Trace & Write — 5 questions each. 2 sight
+  words (Dolch pre-primer) and 2 three-letter words a day, plus yesterday's.
+- **K–Grade 5**: the learning session, then math and reading every day
+  (2 math from Grade 4), science from Grade 1, and other subjects taking
+  turns (science, puzzles, writing, geography, thinking skills):
+
+  | | K | G1 | G2 | G3 | G4 | G5 |
+  |---|---|---|---|---|---|---|
+  | Tiles a day | 5 | 6 | 6 | 7 | 8 | 8 |
+  | Questions per sheet | 5 | 5 | 7 | 7 | 8 | 8 |
+
   Same day = same sheets on every device.
-- **Weekly GT test (Sundays, K–5)**: the whole of Sunday's work (no
-  learning session, other sheets or bonus sheets; "Learn more" stays). 15 questions in K, then 20, 25, 30, 35, 40
-  up to Grade 5, in three parts like the CogAT (Word, Number, Shape
-  thinking), each opened by a "Part 1 of 3" card. One try per question, no
-  hints; the score and each part's score are shown at the end, with the
-  weakest part to practise. It is saved like any sheet (Thinking Skills)
-  but doesn't change the daily difficulty. Other days show when it's next.
+- **Weekly GT test (Sundays, K–5)**: the whole of Sunday's work — 10
+  questions in K, 15 in Grade 1, 20 from Grade 2 (harder each grade), in
+  three parts like the CogAT (Word, Number, Shape thinking). One try per
+  question, no hints; the score and each part's score are shown at the end,
+  with the weakest part to practise. Saved under Thinking Skills, but it
+  doesn't change the daily difficulty. Other days show when it's next.
+- A few bonus sheets once the plan is done (not Age 2, not on GT Sundays),
+  and the rewards pill (if grown-ups enabled rewards).
 - **Learn more** (below the plan): picture-card sessions to open any time,
   chosen by age (`lib/generators/learn_more.dart`). Age 2–3: letters,
   numbers, shapes, colors, animals (+ fruits for Age 3); Pre-K adds sight
   words and three-letter words (sounds read aloud), body and a few
   countries; K+ drops the toddler basics and adds more topics each grade.
-- A bonus sheet (not for Age 2) and the rewards pill (if grown-ups enabled rewards).
 
 ## Worksheets
 **86 worksheet kinds** across 7 subjects. Each has a level range and gets
@@ -51,7 +58,7 @@ harder with the level.
 Per level: Age 2: 3 · Age 3: 16 · Pre-K: 25 · K: 29 · G1: 41 ·
 G2: 38 · G3: 37 · G4: 31 · G5: 25.
 
-Questions per sheet: Age 2–3: 3 · Pre-K: 5 · K: 6 · G1–2: 7 · G3–5: 8.
+Questions per sheet: Age 2: 3 · Age 3: 5 · Pre-K–G1: 5 · G2–3: 7 · G4–5: 8 (worked examples not counted).
 
 | Subject | Examples |
 |---|---|

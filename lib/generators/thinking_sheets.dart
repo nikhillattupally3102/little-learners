@@ -827,9 +827,13 @@ Question _paperFold(Gen g) {
 
 // ======================================================== weekly GT test
 
-/// Questions in the weekly GT test: 15 in Kindergarten, 5 more each grade.
-int gtTestLength(Level level) =>
-    15 + 5 * max(0, level.index - Level.kindergarten.index);
+/// Questions in the weekly GT test: 10 in Kindergarten, 15 in Grade 1,
+/// 20 from Grade 2 (harder each grade).
+int gtTestLength(Level level) => switch (level) {
+  Level.kindergarten => 10,
+  Level.grade1 => 15,
+  _ => 20,
+};
 
 /// The test's three parts, in order: (title, emoji).
 const gtSections = [

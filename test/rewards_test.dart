@@ -86,7 +86,10 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
-      ProgressScope(notifier: p, child: const MaterialApp(home: RewardsScreen())),
+      ProgressScope(
+        notifier: p,
+        child: const MaterialApp(home: RewardsScreen()),
+      ),
     );
     await tester.pump(const Duration(milliseconds: 500));
     final card = find.byWidgetPredicate(

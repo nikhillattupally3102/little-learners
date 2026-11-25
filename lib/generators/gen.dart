@@ -44,9 +44,10 @@ class Gen {
     Level.age2: 3,
     Level.age3: 3,
     Level.preK: 5,
-    Level.kindergarten: 6,
-    Level.grade1: 7,
-    Level.grade3: 8,
+    Level.kindergarten: 5,
+    Level.grade1: 5,
+    Level.grade2: 7,
+    Level.grade4: 8,
   });
 
   bool atLeast(Level l) => level.atLeast(l);
