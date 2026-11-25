@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../widgets/pic.dart';
@@ -10,6 +12,7 @@ import '../widgets/backgrounds.dart';
 import '../widgets/bubbly_button.dart';
 import '../widgets/shape_icon.dart';
 import '../content/topics.dart';
+import '../generators/learn_more.dart';
 import '../generators/topic_sheets.dart';
 import 'learn_screen.dart';
 import 'rewards_screen.dart';
@@ -73,6 +76,27 @@ class HomeScreen extends StatelessWidget {
         _WorksheetCard(ws, progress.starsFor(ws.id), base: level, bonus: true),
     ];
 
+    // Learning sessions to open any time, chosen for the child's age.
+    final moreTiles = <Widget>[
+      for (final more in learnMoreFor(level, today))
+        _PlanCard(
+          color: more.topic.color,
+          emoji: more.topic.emoji,
+          title: more.topic.title,
+          subtitle: level.atMost(Level.age3)
+              ? '🎓 Look, learn & play'
+              : '🎓 Learn & quiz',
+          footer: '${more.topic.items.length} things to learn  ▶',
+          stars: progress.starsFor(learnMoreQuizId(today, more.topic)),
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) =>
+                  LearnScreen(topic: more.topic, level: level, more: more),
+            ),
+          ),
+        ),
+    ];
+
     return Scaffold(
       body: Stack(
         children: [
@@ -101,25 +125,31 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 if (allDone) const SliverToBoxAdapter(child: _AllDoneBanner()),
-                SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
-                  sliver: SliverGrid(
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 240,
-                          mainAxisSpacing: 18,
-                          crossAxisSpacing: 18,
-                          childAspectRatio: .86,
+                _grid(tiles, bottom: 12),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Learn more 📚',
+                          style: Theme.of(context).textTheme.headlineSmall
+                              ?.copyWith(fontWeight: FontWeight.w700),
                         ),
-                    delegate: SliverChildBuilderDelegate(
-                      childCount: tiles.length,
-                      (context, i) => PopIn(
-                        delay: Duration(milliseconds: 60 * i),
-                        child: tiles[i],
-                      ),
+                        const SizedBox(height: 2),
+                        Text(
+                          'Look at the cards any time, then play!',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: AppColors.ink.withValues(alpha: .7),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
+                _grid(moreTiles, bottom: 40),
               ],
             ),
           ),
@@ -128,6 +158,26 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+/// A grid of plan cards that pop in one after another.
+Widget _grid(List<Widget> tiles, {required double bottom}) => SliverPadding(
+  padding: EdgeInsets.fromLTRB(20, 8, 20, bottom),
+  sliver: SliverGrid(
+    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+      maxCrossAxisExtent: 240,
+      mainAxisSpacing: 18,
+      crossAxisSpacing: 18,
+      childAspectRatio: .86,
+    ),
+    delegate: SliverChildBuilderDelegate(
+      childCount: tiles.length,
+      (context, i) => PopIn(
+        delay: Duration(milliseconds: 60 * min(i, 8)),
+        child: tiles[i],
+      ),
+    ),
+  ),
+);
 
 class _Header extends StatelessWidget {
   const _Header({required this.profile, required this.progress});

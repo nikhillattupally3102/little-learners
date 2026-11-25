@@ -9,8 +9,13 @@ class TopicItem {
     this.fact, {
     this.picture,
     this.from,
+    this.say,
   });
   final String name;
+
+  /// What to read aloud on the card, when it isn't just the name and fact
+  /// (e.g. a word's sounds: "kuh… ah… tuh… cat").
+  final List<String>? say;
 
   /// The topic this item was borrowed from, when it appears in a mixed
   /// topic (e.g. today's toddler "Animals"), so its real photo is found.

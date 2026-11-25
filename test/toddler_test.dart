@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:little_learners/content/daily_focus.dart';
 import 'package:little_learners/content/topics.dart';
+import 'package:little_learners/generators/learn_more.dart';
 import 'package:little_learners/generators/topic_sheets.dart';
 import 'package:little_learners/models/generator.dart';
 import 'package:little_learners/models/models.dart';
@@ -33,13 +34,18 @@ void main() {
           // Every learning session ends in a short picture game.
           for (final t in topicsForDay(date, level))
               WorksheetGenerator.buildTopicQuiz(date, level, t),
+          // …and so does every "Learn more" session.
+          for (final m in learnMoreFor(level, date))
+            WorksheetGenerator.buildLearnMoreQuiz(date, level, m),
         ];
         for (final ws in sheets) {
           final lettersOk = ws.kind == WorksheetKind.tLetters ||
               ws.kind == WorksheetKind.tNumbers ||
               ws.kind == WorksheetKind.tReview ||
               ws.id.contains('_topic_abc') ||
-              ws.id.contains('_topic_numbers');
+              ws.id.contains('_topic_numbers') ||
+              ws.id.contains('_more_abc') ||
+              ws.id.contains('_more_numbers');
           final tracing = ws.kind == WorksheetKind.tTrace;
           expect(ws.questions, isNotEmpty, reason: ws.id);
           for (final q in ws.questions) {

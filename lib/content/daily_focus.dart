@@ -154,6 +154,15 @@ class ToddlerFocus {
     );
   }
 
+  /// A focus on any set of things (for the "Learn more" sessions), so their
+  /// games are the same ones toddlers play every day.
+  factory ToddlerFocus.custom({
+    List<TopicItem> letters = const [],
+    List<TopicItem> numbers = const [],
+    ToddlerTheme theme = ToddlerTheme.animals,
+    List<TopicItem> items = const [],
+  }) => ToddlerFocus._(letters, numbers, theme, items);
+
   final List<TopicItem> letters;
   final List<TopicItem> numbers;
   final ToddlerTheme theme;

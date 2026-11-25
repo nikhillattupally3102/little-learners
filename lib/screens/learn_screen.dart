@@ -5,6 +5,7 @@ import '../widgets/pic.dart';
 import 'package:flutter/material.dart';
 
 import '../content/topics.dart';
+import '../generators/learn_more.dart';
 import '../generators/topic_sheets.dart';
 import '../models/generator.dart';
 import '../models/models.dart';
@@ -19,9 +20,17 @@ import 'worksheet_screen.dart';
 /// A learning session: swipe through picture cards about one topic (each
 /// read aloud), then take a quiz on what you learned.
 class LearnScreen extends StatefulWidget {
-  const LearnScreen({super.key, required this.topic, required this.level});
+  const LearnScreen({
+    super.key,
+    required this.topic,
+    required this.level,
+    this.more,
+  });
   final Topic topic;
   final Level level;
+
+  /// Set for a "Learn more" session, which has its own game.
+  final LearnMore? more;
 
   @override
   State<LearnScreen> createState() => _LearnScreenState();
@@ -56,7 +65,7 @@ class _LearnScreenState extends State<LearnScreen> {
     if (_index < count) {
       final item = topic.items[_index];
       final more = deeperFact(topic, item, widget.level);
-      Speaker.instance.say([item.name, item.fact, ?more]);
+      Speaker.instance.say(item.say ?? [item.name, item.fact, ?more]);
     } else {
       Speaker.instance.say([
         _toddler
@@ -73,12 +82,21 @@ class _LearnScreenState extends State<LearnScreen> {
   );
 
   void _startQuiz() {
-    final quiz = WorksheetGenerator.buildTopicQuiz(
-      DateTime.now(),
-      widget.level,
-      topic,
-      avoid: ProgressScope.read(context).recentlySeen(),
-    );
+    final avoid = ProgressScope.read(context).recentlySeen();
+    final more = widget.more;
+    final quiz = more == null
+        ? WorksheetGenerator.buildTopicQuiz(
+            DateTime.now(),
+            widget.level,
+            topic,
+            avoid: avoid,
+          )
+        : WorksheetGenerator.buildLearnMoreQuiz(
+            DateTime.now(),
+            widget.level,
+            more,
+            avoid: avoid,
+          );
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => WorksheetScreen(worksheet: quiz)),
     );
@@ -263,7 +281,13 @@ class _FactCard extends StatelessWidget {
               builder: (context) {
                 final photo = photoIdFor(topic, item);
                 if (photo == null) {
-                  return PopIn(child: Pic(item.emoji, size: emojiSize));
+                  // Long words shrink to fit instead of running off the card.
+                  return PopIn(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Pic(item.emoji, size: emojiSize),
+                    ),
+                  );
                 }
                 final w = c.maxWidth - 48;
                 final draw = min(emojiSize * .8, w * .36);

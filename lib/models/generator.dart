@@ -4,6 +4,7 @@ import '../content/daily_focus.dart';
 import '../content/science.dart';
 import '../content/topics.dart';
 import '../generators/gen.dart';
+import '../generators/learn_more.dart';
 import '../generators/geography_sheets.dart';
 import '../generators/math_formats.dart';
 import '../generators/math_sheets.dart';
@@ -176,6 +177,34 @@ class WorksheetGenerator {
       questions: questions,
       level: level,
       title: '${topic.title} Quiz',
+      emoji: topic.emoji,
+      color: topic.color,
+    );
+  }
+
+  /// The game after a "Learn more" session.
+  static Worksheet buildLearnMoreQuiz(
+    DateTime date,
+    Level level,
+    LearnMore more, {
+    Set<String> avoid = const {},
+  }) {
+    final topic = more.topic;
+    final g = Gen(
+      Random(
+        int.parse(dayKey(date)) * 31 +
+            level.index * 7919 +
+            Gen.stableHash('more_${topic.id}') % 1000,
+      ),
+      level,
+      avoid: avoid,
+    );
+    return Worksheet(
+      id: learnMoreQuizId(date, topic),
+      kind: WorksheetKind.topicQuiz,
+      questions: more.quiz(g),
+      level: level,
+      title: level.atMost(Level.age3) ? topic.title : '${topic.title} Quiz',
       emoji: topic.emoji,
       color: topic.color,
     );
