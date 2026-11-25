@@ -50,10 +50,7 @@ class _GtResultScreenState extends State<GtResultScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => Speaker.instance.say([
-        _title,
-        'You got $right out of $total.',
-      ]),
+      (_) => Speaker.instance.say([_title, 'You got $right out of $total.']),
     );
   }
 

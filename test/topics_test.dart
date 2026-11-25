@@ -26,7 +26,8 @@ void main() {
           } else if (level.atMost(Level.grade2)) {
             expect(ws.questions.length, greaterThanOrEqualTo(4));
             final match = ws.questions.first as MatchQuestion;
-            expect(match.left.length, 8);
+            // Up to 8 pairs, leaving fresh things for the other questions.
+            expect(match.left.length, inInclusiveRange(4, 8));
           } else {
             // Grade 3+: no picture matching, a full set of questions.
             expect(ws.questions.length, greaterThanOrEqualTo(8));
@@ -42,14 +43,18 @@ void main() {
     }
   });
 
-  test('matching has 8 pairs (3–4 for toddlers)', () {
+  test('matching has 4–8 pairs (3–4 for toddlers)', () {
     for (final level in Level.values) {
       for (final kind in level.kinds) {
         final ws = WorksheetGenerator.build(DateTime(2026, 3, 3), level, kind);
         for (final m in ws.questions.whereType<MatchQuestion>()) {
           expect(
             m.left.length,
-            level == Level.age2 ? 3 : level == Level.age3 ? 4 : 8,
+            level == Level.age2
+                ? 3
+                : level == Level.age3
+                ? 4
+                : inInclusiveRange(4, 8),
             reason: '${level.name}/${kind.name}',
           );
         }

@@ -106,8 +106,7 @@ class WorksheetGenerator {
       }
       final pool = [
         for (final k in level.kinds)
-          if (k.category == category && !inCore.contains(k) && !k.weeklyOnly)
-            k,
+          if (k.category == category && !inCore.contains(k) && !k.weeklyOnly) k,
       ]..shuffle(Random(level.index * 13 + category.index));
       if (pool.isEmpty) continue;
       final count = min(category.dailyCount - slots.length, pool.length);
@@ -142,8 +141,7 @@ class WorksheetGenerator {
     for (final category in categories) {
       final pool = [
         for (final k in level.kinds)
-          if (k.category == category && !today.contains(k) && !k.weeklyOnly)
-            k,
+          if (k.category == category && !today.contains(k) && !k.weeklyOnly) k,
       ];
       if (pool.isEmpty) continue;
       final kind = pool[day % pool.length];

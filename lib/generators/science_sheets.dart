@@ -21,17 +21,23 @@ final _topics = <(List<Fact>, String, bool)>[
   (ecosystemFacts, 'ecosystems', true),
 ];
 
-/// Facts written for this level, topped up with the nearest-level facts.
+/// Facts written for this level, topped up with the nearest-level facts so
+/// every question on the sheet can be about a different fact.
 List<Fact> _pool(Gen g, List<Fact> bank) {
   final pool = bank.where((f) => f.suits(g.level)).toList();
-  if (pool.length >= 6) return pool;
+  final enough = g.count + 5;
+  if (pool.length >= enough) return pool;
   int distance(Fact f) => g.level.index < f.min.index
       ? f.min.index - g.level.index
       : g.level.index - f.max.index;
   final rest = bank.where((f) => !pool.contains(f)).toList()
     ..sort((a, b) => distance(a) - distance(b));
-  return [...pool, ...rest.take(6 - pool.length)];
+  return [...pool, ...rest.take(enough - pool.length)];
 }
+
+/// Which fact a question is about (some questions, like "Which continent is
+/// in colour?", are asked about several things).
+String _factId(Fact f) => '${f.question}|${f.answer}';
 
 /// Five questions from a fact bank, mixing several different task types.
 List<Question> facts(Gen g, List<Fact> bank) {
@@ -48,6 +54,7 @@ List<Question> facts(Gen g, List<Fact> bank) {
         visual: EmojiVisual(f.emoji),
         answer: f.answer,
         wrong: f.wrong,
+        facts: [_factId(f)],
       );
     },
     // Is this answer right?
@@ -63,6 +70,7 @@ List<Question> facts(Gen g, List<Fact> bank) {
         answer: right ? _yesNo[0] : _yesNo[1],
         wrong: _yesNo,
         speech: ['${f.question.replaceAll('…', '')} $shown. Is this correct?'],
+        facts: [_factId(f)],
       );
     },
     // Fill in the blank.
@@ -78,6 +86,7 @@ List<Question> facts(Gen g, List<Fact> bank) {
           answer: f.answer,
           wrong: f.wrong,
           speech: ['${f.question.replaceAll('…', '')} blank.'],
+          facts: [_factId(f)],
         );
       },
     // Which one is NOT about this topic?
@@ -103,7 +112,7 @@ List<Question> facts(Gen g, List<Fact> bank) {
           count: 4,
         );
       },
-    // Match words to pictures.
+    // Match words to pictures (things not asked about yet on this sheet).
     () {
       final seen = <String>{};
       final unique = [
@@ -112,6 +121,7 @@ List<Question> facts(Gen g, List<Fact> bank) {
           ...([...bank]..shuffle(g.r)),
         ])
           if (f.answer.length <= 16 &&
+              g.isFresh([f.answer, f.emoji]) &&
               seen.add(f.emoji) &&
               seen.add('a:${f.answer}'))
             f,
@@ -123,12 +133,15 @@ List<Question> facts(Gen g, List<Fact> bank) {
           visual: EmojiVisual(f.emoji),
           answer: f.answer,
           wrong: f.wrong,
+          facts: [_factId(f)],
         );
       }
-      return g.match('Match each answer to its picture!', [
-        for (final f in unique.take(Gen.matchCount))
-          (MatchItem(f.answer), MatchItem('', f.emoji)),
-      ]);
+      final chosen = unique.take(g.matchSize(unique.length)).toList();
+      return g.match(
+        'Match each answer to its picture!',
+        [for (final f in chosen) (MatchItem(f.answer), MatchItem('', f.emoji))],
+        facts: [for (final f in chosen) _factId(f)],
+      );
     },
   ]);
 }
@@ -188,11 +201,23 @@ List<Question> animalSoundsSheet(Gen g) {
   ]);
 }
 
+/// "in a nest", "in the ocean", "on the ice".
+String _inHome(String home) {
+  final h = home.toLowerCase();
+  return switch (h) {
+    'ice' => 'on the ice',
+    'ocean' || 'desert' || 'jungle' => 'in the $h',
+    _ => 'in a $h',
+  };
+}
+
 List<Question> animalHomesSheet(Gen g) {
-  const pairs = Gen.matchCount;
   final match = g.keep(
     g.match('Match each animal to its home!', [
-      for (final (e, animal, home, he) in g.pick(animalHomes, pairs))
+      for (final (e, animal, home, he) in g.pick(
+        animalHomes,
+        g.matchSize(animalHomes.length),
+      ))
         (MatchItem(animal, e), MatchItem(home, he)),
     ]),
   );
@@ -213,7 +238,7 @@ List<Question> animalHomesSheet(Gen g) {
     () {
       final (e, _, home, he) = g.one(animalHomes);
       return g.choice(
-        prompt: 'Who lives in a ${home.toLowerCase()}?',
+        prompt: 'Who lives ${_inHome(home)}?',
         visual: EmojiVisual(he, home),
         answer: e,
         wrong: [
@@ -237,9 +262,7 @@ List<Question> animalHomesSheet(Gen g) {
         visual: TextVisual('$e → ${shown.$2} ${shown.$1}'),
         answer: right ? _yesNo[0] : _yesNo[1],
         wrong: _yesNo,
-        speech: [
-          'Does a ${animal.toLowerCase()} live in a ${shown.$1.toLowerCase()}?',
-        ],
+        speech: ['Does a ${animal.toLowerCase()} live ${_inHome(shown.$1)}?'],
       );
     },
   ]);
@@ -247,10 +270,12 @@ List<Question> animalHomesSheet(Gen g) {
 }
 
 List<Question> babyAnimalsSheet(Gen g) {
-  const pairs = Gen.matchCount;
   final match = g.keep(
     g.match('Match each animal to its baby!', [
-      for (final (e, animal, baby) in g.pick(babyAnimals, pairs))
+      for (final (e, animal, baby) in g.pick(
+        babyAnimals,
+        g.matchSize(babyAnimals.length),
+      ))
         (MatchItem(animal, e), MatchItem(baby)),
     ]),
   );

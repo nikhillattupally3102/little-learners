@@ -844,11 +844,16 @@ class ChoiceQuestion extends Question {
     required this.choices,
     required this.answer,
     this.speech,
+    this.facts = const [],
   });
   final String prompt;
   final Visual visual;
   final List<Choice> choices;
   final int answer;
+
+  /// The facts this question asks about (e.g. a science fact's question).
+  /// A worksheet never asks about the same fact twice.
+  final List<String> facts;
 
   /// What is read aloud, in segments. Defaults to the prompt.
   final List<String>? speech;
@@ -887,8 +892,12 @@ class MatchQuestion extends Question {
     required this.left,
     required this.right,
     required this.answers,
+    this.facts = const [],
   });
   final String prompt;
+
+  /// The facts its pairs come from (see [ChoiceQuestion.facts]).
+  final List<String> facts;
   final List<MatchItem> left;
   final List<MatchItem> right;
 

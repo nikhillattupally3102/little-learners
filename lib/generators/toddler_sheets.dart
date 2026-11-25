@@ -425,7 +425,8 @@ List<Question> tNumbers(Gen g, ToddlerFocus f) {
         prompt: 'Find $word $name!',
         visual: const ListenVisual(),
         choices: [
-          for (final k in counts) Choice.label(List.filled(k, item.emoji).join()),
+          for (final k in counts)
+            Choice.label(List.filled(k, item.emoji).join()),
         ],
         answer: counts.indexOf(n),
         speech: ['Find $word $name! Count with me!'],
@@ -605,11 +606,8 @@ List<Question> _shapeTheme(Gen g, ToddlerFocus f) {
   }
 
   return _focusSheet<ShapeKind>(g, today, [
-    (s) => shapes(
-      s,
-      prompt: 'Find the ${s.label}!',
-      visual: const ListenVisual(),
-    ),
+    (s) =>
+        shapes(s, prompt: 'Find the ${s.label}!', visual: const ListenVisual()),
     (s) => shapes(
       s,
       prompt: 'Find the same shape!',

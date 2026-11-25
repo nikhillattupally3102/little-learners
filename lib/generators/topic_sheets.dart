@@ -37,8 +37,7 @@ Topic topicForDay(DateTime date) {
 /// Today's learning sessions: for Age 2–3, today's letters, numbers and
 /// theme (see [ToddlerFocus]); for everyone else one topic, rotating
 /// through all of them.
-List<Topic> topicsForDay(DateTime date, Level level) =>
-    level.atMost(Level.age3)
+List<Topic> topicsForDay(DateTime date, Level level) => level.atMost(Level.age3)
     ? ToddlerFocus.of(date, level).topics
     : [topicForDay(date)];
 
@@ -105,7 +104,12 @@ List<Question> topicQuiz(Gen g, Topic t) {
       ? null
       : g.keep(
           g.match('Match each ${t.kindOf} to its name!', [
-            for (final i in g.pick(items, min(Gen.matchCount, items.length)))
+            for (final i in g.pick(
+              items,
+              // Just learned these cards: a big round, one fresh item left
+              // for each question after it.
+              min(g.matchSize(items.length, perQuestion: 1), items.length),
+            ))
               (MatchItem(i.name), MatchItem('', i.emoji)),
           ]),
         );

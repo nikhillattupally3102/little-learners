@@ -21,6 +21,19 @@ class Gen {
 
   final _keys = <String>{};
   final _words = <String>{};
+
+  /// What accepted questions were about: their answers, and what they showed.
+  final _aboutAnswers = <String>{};
+  final _aboutShown = <String>{};
+
+  /// Facts already asked about on this worksheet.
+  final _facts = <String>{};
+
+  static List<String> _factsOf(Question q) => switch (q) {
+    ChoiceQuestion() => q.facts,
+    MatchQuestion() => q.facts,
+    _ => const [],
+  };
   int _matchCount = 0;
   String? _lastPrompt;
 
@@ -63,6 +76,7 @@ class Gen {
     required Iterable<String> wrong,
     int? count,
     List<String>? speech,
+    List<String> facts = const [],
   }) {
     final others = <String>{...wrong}..remove(answer);
     final n = min(count ?? others.length + 1, others.length + 1);
@@ -73,6 +87,7 @@ class Gen {
       choices: [for (final v in list) Choice.label(v)],
       answer: list.indexOf(answer),
       speech: speech,
+      facts: facts,
     );
   }
 
@@ -105,13 +120,31 @@ class Gen {
     );
   }
 
-  /// How many pairs each matching question has.
+  /// How many pairs each matching question has (at most).
   static const matchCount = 8;
 
-  MatchQuestion match(String prompt, List<(MatchItem, MatchItem)> pairs) {
+  /// Pairs for a matching round from [available] items: fewer when the
+  /// topic is small, so the sheet's other questions can each be about
+  /// something new (questions often show two items: [perQuestion]).
+  int matchSize(int available, {int perQuestion = 2}) =>
+      (available - perQuestion * (count - 1)).clamp(4, matchCount);
+
+  /// Whether nothing in [texts] (names, pictures) has come up on this
+  /// worksheet yet.
+  bool isFresh(Iterable<String> texts) => texts.every(
+    (t) => _subjects(t)
+        .every((x) => !_aboutAnswers.contains(x) && !_aboutShown.contains(x)),
+  );
+
+  MatchQuestion match(
+    String prompt,
+    List<(MatchItem, MatchItem)> pairs, {
+    List<String> facts = const [],
+  }) {
     final order = List.generate(pairs.length, (i) => i)..shuffle(r);
     return MatchQuestion(
       prompt: prompt,
+      facts: facts,
       left: [for (final p in pairs) p.$1],
       right: [for (final i in order) pairs[i].$2],
       answers: [for (var i = 0; i < pairs.length; i++) order.indexOf(i)],
@@ -192,22 +225,41 @@ class Gen {
       ? 1
       : misses < 18
       ? 2
-      : 3;
+      : misses < 30
+      ? 3
+      : 4;
 
   bool _take(Question q, int strict) {
     final key = _key(q);
     if (_keys.contains(key)) return false;
+    // Never the same fact twice on one worksheet, however short it gets.
+    if (_factsOf(q).any(_facts.contains)) return false;
     if (q is MatchQuestion && _matchCount >= maxMatches) return false;
     if (strict < 1 && avoid.contains(fingerprint(q))) return false;
     if (strict < 2 && _promptOf(q) == _lastPrompt) return false;
     if (strict < 3 && wordsOf(q).any(_words.contains)) return false;
+    // Two questions about the same thing ("Rabbits live in burrows: true?"
+    // then "Who lives in a burrow?") — the last rule to give way.
+    if (strict < 4 && _aboutTaken(q)) return false;
     _register(q);
     return true;
+  }
+
+  bool _aboutTaken(Question q) {
+    final (answer, shown) = aboutOf(q);
+    return answer.any(
+          (x) => _aboutAnswers.contains(x) || _aboutShown.contains(x),
+        ) ||
+        shown.any(_aboutAnswers.contains);
   }
 
   void _register(Question q) {
     _keys.add(_key(q));
     _words.addAll(wordsOf(q));
+    final (answer, shown) = aboutOf(q);
+    _aboutAnswers.addAll(answer);
+    _aboutShown.addAll(shown);
+    _facts.addAll(_factsOf(q));
     if (q is MatchQuestion) _matchCount++;
     _lastPrompt = _promptOf(q);
   }
@@ -262,6 +314,275 @@ class Gen {
     PassageVisual() => [v.title],
     _ => const [],
   };
+
+  /// What a question is about, as (answer, shown): the things in its
+  /// answer, and the things in its picture, caption or sentence. For yes/no
+  /// and true/false questions the statement shown is the answer.
+  ///
+  /// "Rabbits live in burrows: true?" is about rabbit and burrow; so is
+  /// "Who lives in a burrow? → 🐰". Prompts are left out: a worksheet's
+  /// prompts share a template, which doesn't make questions related.
+  static (Set<String>, Set<String>) aboutOf(Question q) {
+    switch (q) {
+      case ChoiceQuestion():
+        // Questions about one reading passage are meant to be related.
+        if (q.visual is PassageVisual) return (const {}, const {});
+        final label = q.choices[q.answer].label ?? '';
+        final shown = {for (final t in _visualText(q.visual)) ..._subjects(t)};
+        // A row of pictures (🍎🍎🍎, a sequence) isn't one thing.
+        final many =
+            label.runes.where((r) => _isPicture(r)).length > 1 &&
+            !label.contains(' ');
+        // Puzzle figures are compared exactly elsewhere.
+        final spec = label.startsWith('fig:') || label.startsWith('paper:');
+        final answer = many || spec ? <String>{} : _subjects(label);
+        final yesNo = RegExp(
+          r'^(yes|no|true|false)\b',
+          caseSensitive: false,
+        ).hasMatch(label.trim());
+        return (yesNo ? shown : answer, shown);
+      case MatchQuestion():
+        final all = {
+          for (final e in [...q.left, ...q.right]) ...{
+            ..._subjects(e.text),
+            ..._subjects(e.emoji ?? ''),
+          },
+        };
+        return (all, all);
+      case TraceQuestion() || ExampleQuestion():
+        return (const {}, const {});
+    }
+  }
+
+  /// Whether two questions are about the same thing: one's answer is in
+  /// the other's picture, sentence or answer.
+  static bool related(Question a, Question b) {
+    if (_factsOf(a).any(_factsOf(b).contains)) return true;
+    final (aAnswer, aShown) = aboutOf(a);
+    final (bAnswer, bShown) = aboutOf(b);
+    return aAnswer.any((x) => bAnswer.contains(x) || bShown.contains(x)) ||
+        bAnswer.any(aShown.contains);
+  }
+
+  static List<String> _visualText(Visual v) => switch (v) {
+    TextVisual() => [v.text],
+    EmojiVisual() => [v.emoji, ?v.caption],
+    CountVisual() => [v.emoji],
+    WordPictureVisual() => [v.word, v.emoji],
+    ShadowVisual() => [v.emoji],
+    ArrayVisual() => [v.emoji],
+    MixedVisual() => v.items,
+    _ => const [],
+  };
+
+  /// Words that say nothing about what a question is about.
+  static const _filler = {
+    'a',
+    'an',
+    'the',
+    'and',
+    'or',
+    'but',
+    'of',
+    'to',
+    'in',
+    'on',
+    'at',
+    'by',
+    'for',
+    'with',
+    'from',
+    'into',
+    'onto',
+    'up',
+    'out',
+    'off',
+    'over',
+    'is',
+    'are',
+    'was',
+    'were',
+    'be',
+    'been',
+    'am',
+    'do',
+    'does',
+    'did',
+    'has',
+    'have',
+    'had',
+    'can',
+    'could',
+    'will',
+    'would',
+    'should',
+    'may',
+    'it',
+    'its',
+    'this',
+    'that',
+    'these',
+    'those',
+    'there',
+    'here',
+    'they',
+    'them',
+    'their',
+    'he',
+    'she',
+    'his',
+    'her',
+    'him',
+    'you',
+    'your',
+    'we',
+    'our',
+    'us',
+    'i',
+    'me',
+    'my',
+    'who',
+    'what',
+    'which',
+    'where',
+    'when',
+    'why',
+    'how',
+    'one',
+    'ones',
+    'some',
+    'many',
+    'much',
+    'more',
+    'most',
+    'all',
+    'each',
+    'every',
+    'any',
+    'not',
+    'no',
+    'yes',
+    'true',
+    'false',
+    'so',
+    'if',
+    'than',
+    'then',
+    'too',
+    'very',
+    'just',
+    'also',
+    'only',
+    'same',
+    'other',
+    'live',
+    'lives',
+    'living',
+    'find',
+    'tap',
+    'pick',
+    'choose',
+    'show',
+    'look',
+    'see',
+    'tell',
+    'make',
+    'makes',
+    'made',
+    'go',
+    'goes',
+    'get',
+    'gets',
+    'use',
+    'used',
+    'uses',
+    'call',
+    'called',
+    'name',
+    'word',
+    'words',
+    'sentence',
+    'picture',
+    'pictures',
+    'answer',
+    'question',
+    'number',
+    'numbers',
+    'thing',
+    'things',
+    'kind',
+    'best',
+    'right',
+    'correct',
+    'missing',
+    'blank',
+    'next',
+    'come',
+    'comes',
+    'first',
+    'last',
+    'belong',
+    'belongs',
+    'together',
+    'match',
+    'mean',
+    'means',
+    'like',
+    'about',
+    'help',
+    'pic',
+    'united',
+  };
+
+  /// Pictures that are just marks (✅ ❌ → +), not subjects.
+  static const _marks = {
+    0x2705,
+    0x274C,
+    0x2714,
+    0x2716,
+    0x2795,
+    0x2796,
+    0x2797,
+    0x1F44D, // 👍
+    0x1F44E, // 👎
+  };
+
+  static bool _isPicture(int r) =>
+      (r >= 0x1F000 || (r >= 0x2600 && r <= 0x27BF)) && !_marks.contains(r);
+
+  static Set<String> _subjects(String text) {
+    final out = <String>{};
+    // Pictures (emoji) name things too.
+    final runes = text.runes.toList();
+    for (var i = 0; i < runes.length; i++) {
+      final r = runes[i];
+      // Flags are two letters (🇮 🇳): keep them together.
+      if (r >= 0x1F1E6 && r <= 0x1F1FF && i + 1 < runes.length) {
+        out.add(String.fromCharCodes([r, runes[++i]]));
+      } else if (_isPicture(r)) {
+        out.add(String.fromCharCode(r));
+      }
+    }
+    for (final w in text.toLowerCase().split(RegExp(r'[^a-z]+'))) {
+      if (w.length < 3 || _filler.contains(w)) continue;
+      out.add(_stem(w));
+    }
+    return out;
+  }
+
+  /// burrows → burrow, berries → berry, boxes → box.
+  static String _stem(String w) {
+    if (w.length > 4 && w.endsWith('ies')) {
+      return '${w.substring(0, w.length - 3)}y';
+    }
+    if (w.length > 4 && RegExp(r'(s|x|z|ch|sh)es$').hasMatch(w)) {
+      return w.substring(0, w.length - 2);
+    }
+    if (w.length > 3 && w.endsWith('s') && !w.endsWith('ss')) {
+      return w.substring(0, w.length - 1);
+    }
+    return w;
+  }
 
   /// A short stable id for a question, used to remember what a child has
   /// already seen on earlier days.

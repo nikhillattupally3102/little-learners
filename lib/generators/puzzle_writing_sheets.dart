@@ -1254,7 +1254,9 @@ List<Question> tracing(Gen g, {PreKWords? today}) {
       for (final (i, w) in words.indexed)
         TraceQuestion(
           glyph: w,
-          hint: i.isEven ? 'Say it: "$w" 👀' : '${w.split('').join('-')} ${cvc[i ~/ 2].$1}',
+          hint: i.isEven
+              ? 'Say it: "$w" 👀'
+              : '${w.split('').join('-')} ${cvc[i ~/ 2].$1}',
           speech: 'Trace the word $w. ${w.split('').join(', ')}. $w!',
         ),
       () {

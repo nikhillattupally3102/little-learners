@@ -63,7 +63,8 @@ const _shapeFacts = {
   ShapeKind.triangle: 'I have three sides and three corners.',
   ShapeKind.star: 'I have five points and twinkle in the sky.',
   ShapeKind.heart: 'I mean love! Draw me for someone you love.',
-  ShapeKind.rectangle: 'I have four sides, two long and two short, like a door.',
+  ShapeKind.rectangle:
+      'I have four sides, two long and two short, like a door.',
   ShapeKind.oval: 'I am round and long, like an egg.',
   ShapeKind.diamond: 'I have four pointy corners, like a kite.',
 };
@@ -99,9 +100,7 @@ enum ToddlerTheme {
           TopicItem(
             c.$1,
             c.$2,
-            _topic(
-              'colors',
-            ).items.firstWhere((i) => i.name == c.$1).fact,
+            _topic('colors').items.firstWhere((i) => i.name == c.$1).fact,
             from: 'colors',
           ),
       ],
@@ -224,7 +223,8 @@ class PreKWords {
   factory PreKWords.of(DateTime date) {
     final day = dayNumber(date);
     List<X> two<X>(List<X> xs, int d) => [
-      for (var i = 0; i < 2; i++) xs[((d * 2 + i) % xs.length + xs.length) % xs.length],
+      for (var i = 0; i < 2; i++)
+        xs[((d * 2 + i) % xs.length + xs.length) % xs.length],
     ];
     return PreKWords._(
       two(preKSightWords, day),

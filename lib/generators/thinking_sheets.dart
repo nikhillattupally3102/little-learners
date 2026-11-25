@@ -66,7 +66,10 @@ Question _pictureAnalogy(Gen g) {
     prompt: 'These two go together. What goes with the last one?',
     visual: MatrixVisual([a, b, c, '?']),
     answer: d,
-    wrong: [...g.pick(same, n - 1), ...g.pick(more, max(0, n - 1 - same.length))],
+    wrong: [
+      ...g.pick(same, n - 1),
+      ...g.pick(more, max(0, n - 1 - same.length)),
+    ],
     count: n,
     speech: [
       'Look! These two pictures go together.',
