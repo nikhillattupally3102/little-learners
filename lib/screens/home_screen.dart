@@ -34,7 +34,10 @@ class HomeScreen extends StatelessWidget {
       levelFor: progress.levelFor,
       avoid: avoid,
     );
-    final learnTopics = topicsForDay(today, level);
+    // Sundays (K–5) are just the GT test: no learning session.
+    final learnTopics = WorksheetGenerator.gtDayFor(today, level)
+        ? const <Topic>[]
+        : topicsForDay(today, level);
     final done =
         worksheets.where((w) => progress.starsFor(w.id) != null).length +
         learnTopics
@@ -139,7 +142,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                if (allDone) const SliverToBoxAdapter(child: _AllDoneBanner()),
+                if (allDone)
+                  SliverToBoxAdapter(
+                    child: _AllDoneBanner(
+                      gtDay: WorksheetGenerator.gtDayFor(today, level),
+                    ),
+                  ),
                 _grid(tiles, bottom: 12),
                 SliverToBoxAdapter(
                   child: Padding(
@@ -544,7 +552,10 @@ class _PlanCard extends StatelessWidget {
 }
 
 class _AllDoneBanner extends StatelessWidget {
-  const _AllDoneBanner();
+  const _AllDoneBanner({this.gtDay = false});
+
+  /// After the Sunday GT test there are no bonus sheets.
+  final bool gtDay;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -556,14 +567,14 @@ class _AllDoneBanner extends StatelessWidget {
       ),
       borderRadius: BorderRadius.circular(24),
     ),
-    child: const Row(
+    child: Row(
       children: [
-        PicLabel('🏆', style: TextStyle(fontSize: 40)),
-        SizedBox(width: 12),
+        const PicLabel('🏆', style: TextStyle(fontSize: 40)),
+        const SizedBox(width: 12),
         Expanded(
           child: PicLabel(
-            'All done for today! Try a bonus worksheet, or come back tomorrow 🌙',
-            style: TextStyle(
+            gtDay ? 'GT test done! Enjoy your Sunday, and see you tomorrow 🌙' : 'All done for today! Try a bonus worksheet, or come back tomorrow 🌙',
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 17,
               fontWeight: FontWeight.w600,

@@ -237,7 +237,7 @@ void main() {
     }
   });
 
-  test('the GT test is on Sundays only, first in the plan, for K–5', () {
+  test('Sundays (K–5) are just the GT test; other days never have it', () {
     for (var d = 0; d < 28; d++) {
       final date = start.add(Duration(days: d));
       final sunday = date.weekday == DateTime.sunday;
@@ -249,12 +249,9 @@ void main() {
         ).map((w) => w.kind);
         expect(bonus, isNot(contains(WorksheetKind.gtTest)));
         if (sunday && level.atLeast(Level.kindergarten)) {
-          expect(
-            kinds.first,
-            WorksheetKind.gtTest,
-            reason: '${level.name} $date',
-          );
-          expect(kinds.where((k) => k.category == Category.thinking).length, 1);
+          // The GT test is the whole day's work: nothing else, no bonus.
+          expect(kinds, [WorksheetKind.gtTest], reason: '${level.name} $date');
+          expect(bonus, isEmpty);
         } else {
           expect(
             kinds,

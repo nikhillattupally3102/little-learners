@@ -47,7 +47,8 @@ void main() {
 
   test('daily set has every category and no repeats', () {
     for (final level in Level.values) {
-      final sheets = WorksheetGenerator.forDay(DateTime(2026, 3, 1), level);
+      // A Monday (Sundays are just the GT test).
+      final sheets = WorksheetGenerator.forDay(DateTime(2026, 3, 2), level);
       expect(sheets.map((w) => w.kind).toSet().length, sheets.length);
       if (level.atMost(Level.age3)) continue; // toddlers: a few picture activities
       // Thinking Skills starts in Kindergarten.

@@ -63,6 +63,11 @@ class WorksheetGenerator {
   /// The weekly GT test is on Sundays.
   static bool isGtDay(DateTime date) => date.weekday == DateTime.sunday;
 
+  /// Whether [date] is a GT test day for [level] (Sundays, K–5): the test
+  /// is the only thing on the plan, with no learning session or bonus.
+  static bool gtDayFor(DateTime date, Level level) =>
+      isGtDay(date) && level.kinds.contains(WorksheetKind.gtTest);
+
   /// Toddlers' plan is the same shape every day — only its content
   /// (today's letters, numbers and theme) changes.
   static const _toddlerPlan = {
@@ -86,6 +91,8 @@ class WorksheetGenerator {
 
   /// Which kinds of worksheet are on today's plan.
   static List<WorksheetKind> kindsForDay(DateTime date, Level level) {
+    // Sundays (K–5): the weekly GT test is the whole day's work.
+    if (gtDayFor(date, level)) return const [WorksheetKind.gtTest];
     final toddler = _toddlerPlan[level];
     if (toddler != null) return toddler;
     final day = _day(date);
@@ -108,12 +115,6 @@ class WorksheetGenerator {
         kinds.add(pool[(day * count + i) % pool.length]);
       }
     }
-    // Sundays: the weekly GT test, first, instead of the Thinking sheet.
-    if (isGtDay(date) && level.kinds.contains(WorksheetKind.gtTest)) {
-      kinds
-        ..removeWhere((k) => k.category == Category.thinking)
-        ..insert(0, WorksheetKind.gtTest);
-    }
     return kinds;
   }
 
@@ -127,6 +128,7 @@ class WorksheetGenerator {
     int count = 3,
   }) {
     if (level == Level.age2) return const []; // learning only
+    if (gtDayFor(date, level)) return const []; // just the GT test
     final today = {
       ...kindsForDay(date, level),
       // Today's focus games are already in the learning sessions.

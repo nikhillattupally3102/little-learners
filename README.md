@@ -30,8 +30,8 @@ learning cards and the worksheets so each thing is met several ways:
 - **K–Grade 5**: 1 learning session, then 2 Math, 2 Reading, 1 Science,
   1 Puzzle, 1 Writing, 1 Geography and 1 Thinking Skills, rotating daily.
   Same day = same sheets on every device.
-- **Weekly GT test (Sundays, K–5)**: first in the plan, instead of that
-  day's Thinking Skills sheet. 15 questions in K, then 20, 25, 30, 35, 40
+- **Weekly GT test (Sundays, K–5)**: the whole of Sunday's work (no
+  learning session, other sheets or bonus sheets; "Learn more" stays). 15 questions in K, then 20, 25, 30, 35, 40
   up to Grade 5, in three parts like the CogAT (Word, Number, Shape
   thinking), each opened by a "Part 1 of 3" card. One try per question, no
   hints; the score and each part's score are shown at the end, with the
