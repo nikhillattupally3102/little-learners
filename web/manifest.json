@@ -1,0 +1,35 @@
+{
+    "name": "Little Learners",
+    "short_name": "Little Learners",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FFF8EC",
+    "theme_color": "#FFC93C",
+    "description": "Daily worksheets and learning for kids aged 2 to Grade 5.",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+// Daily ping that keeps the free Supabase project from pausing.
+// Deploy: cd tool/keepalive && npx wrangler deploy
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "little-learners-keepalive",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-19",
+  "workers_dev": false,
+  "triggers": { "crons": ["17 6 * * *"] },   // every day at 06:17 UTC
+  "vars": {
+    "SUPABASE_URL": "https://aujikeoaiodavblhpwrf.supabase.co",
+    // The public (publishable) key — the same one inside the web app.
+    "SUPABASE_KEY": "sb_publishable_M_SIE6FP8huSoTzYXyID5g_OWtvXJSi"
+  }
+}

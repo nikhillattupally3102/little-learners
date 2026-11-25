@@ -1,0 +1,1632 @@
+{
+ "farm__cow": {
+  "file": "Cow_(Fleckvieh_breed)_Oeschinensee_Slaunger_2009-07-07.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cow_(Fleckvieh_breed)_Oeschinensee_Slaunger_2009-07-07.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Kim Hansen",
+  "topic": "farm",
+  "name": "Cow",
+  "article": "Cattle"
+ },
+ "farm__pig": {
+  "file": "Pig_farm_Vampula_1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Pig_farm_Vampula_1.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "kallerna",
+  "topic": "farm",
+  "name": "Pig",
+  "article": "Domestic pig"
+ },
+ "farm__sheep": {
+  "file": "Flock_of_sheep.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Flock_of_sheep.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Keith Weller",
+  "topic": "farm",
+  "name": "Sheep",
+  "article": "Sheep"
+ },
+ "farm__horse": {
+  "file": "Nokota_Horses_cropped.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Nokota_Horses_cropped.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Nokota_Horses.jpg: François Marchal\nderivative work: Dana boomer (talk)",
+  "topic": "farm",
+  "name": "Horse",
+  "article": "Horse"
+ },
+ "farm__chicken": {
+  "file": "Male_and_female_chicken_sitting_together.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Andrei Niemimäki from Turku, Finland",
+  "topic": "farm",
+  "name": "Chicken",
+  "article": "Chicken"
+ },
+ "farm__duck": {
+  "file": "Taiwanese_duck_farm.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Taiwanese_duck_farm.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "MiNe (sfmine79) from Taipei, Taiwan",
+  "topic": "farm",
+  "name": "Duck",
+  "article": "Domestic duck"
+ },
+ "farm__goat": {
+  "file": "Hausziege_04.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Hausziege_04.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Kuebi = Armin Kübelbeck",
+  "topic": "farm",
+  "name": "Goat",
+  "article": "Goat"
+ },
+ "farm__rabbit": {
+  "file": "Heimtier_004_2023_08_26.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Heimtier_004_2023_08_26.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Friedrich Haag",
+  "topic": "farm",
+  "name": "Rabbit",
+  "article": "Domestic rabbit"
+ },
+ "farm__turkey": {
+  "file": "Male_north_american_turkey_supersaturated.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Male_north_american_turkey_supersaturated.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "photo taken by Lupin on en:Wikipedia",
+  "topic": "farm",
+  "name": "Turkey",
+  "article": "Domestic turkey"
+ },
+ "farm__dog": {
+  "file": "Huskiesatrest.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "M. Rehemtulla",
+  "topic": "farm",
+  "name": "Dog",
+  "article": "Dog"
+ },
+ "farm__cat": {
+  "file": "Siam_lilacpoint.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Siam_lilacpoint.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Karin Langner-Bahmann, upload von Martin Bahmann",
+  "topic": "farm",
+  "name": "Cat",
+  "article": "Cat"
+ },
+ "wild__lion": {
+  "file": "020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Giles Laurent",
+  "topic": "wild",
+  "name": "Lion",
+  "article": "Lion"
+ },
+ "wild__tiger": {
+  "file": "Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Charles J. Sharp",
+  "topic": "wild",
+  "name": "Tiger",
+  "article": "Tiger"
+ },
+ "wild__elephant": {
+  "file": "178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Giles Laurent",
+  "topic": "wild",
+  "name": "Elephant",
+  "article": "African bush elephant"
+ },
+ "wild__giraffe": {
+  "file": "Three giraffes 01.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Three_giraffes_01.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Byrdyak",
+  "topic": "wild",
+  "name": "Giraffe",
+  "article": "Giraffe"
+ },
+ "wild__zebra": {
+  "file": "Equus_quagga_burchellii_-_Etosha,_2014.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Equus_quagga_burchellii_-_Etosha,_2014.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Yathin S Krishnappa",
+  "topic": "wild",
+  "name": "Zebra",
+  "article": "Plains zebra"
+ },
+ "wild__monkey": {
+  "file": "Japanese_Snow_Monkey_(Macaque)_Mother_Grooms_Her_Young.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Japanese_Snow_Monkey_(Macaque)_Mother_Grooms_Her_Young.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Rocktendo & Adam Gman",
+  "topic": "wild",
+  "name": "Monkey",
+  "article": "Japanese macaque"
+ },
+ "wild__gorilla": {
+  "file": "Male_gorilla_in_SF_zoo.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Male_gorilla_in_SF_zoo.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Brocken Inaglory",
+  "topic": "wild",
+  "name": "Gorilla",
+  "article": "Western gorilla"
+ },
+ "wild__hippo": {
+  "file": "Portrait_Hippopotamus_in_the_water.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Portrait_Hippopotamus_in_the_water.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Muhammad Mahdi Karim",
+  "topic": "wild",
+  "name": "Hippo",
+  "article": "Hippopotamus"
+ },
+ "wild__rhino": {
+  "file": "109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Giles Laurent",
+  "topic": "wild",
+  "name": "Rhino",
+  "article": "White rhinoceros"
+ },
+ "wild__kangaroo": {
+  "file": "Red Kangaroos at Sturt National Park NSW.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Red_Kangaroos_at_Sturt_National_Park_NSW.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "PotMart186",
+  "topic": "wild",
+  "name": "Kangaroo",
+  "article": "Red kangaroo"
+ },
+ "wild__panda": {
+  "file": "Grosser_Panda.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Grosser_Panda.JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "J. Patrick Fischer",
+  "topic": "wild",
+  "name": "Panda",
+  "article": "Giant panda"
+ },
+ "wild__bear": {
+  "file": "2010-kodiak-bear-1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:2010-kodiak-bear-1.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Yathin S Krishnappa",
+  "topic": "wild",
+  "name": "Bear",
+  "article": "Brown bear"
+ },
+ "ocean__whale": {
+  "file": "Humpback_whale_breaching_off_Cabo_San_Lucas.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Humpback_whale_breaching_off_Cabo_San_Lucas.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Juan Cruzado Cortés",
+  "topic": "ocean",
+  "name": "Whale",
+  "article": "Humpback whale"
+ },
+ "ocean__dolphin": {
+  "file": "Tursiops_truncatus_01-cropped.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Tursiops_truncatus_01-cropped.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA",
+  "topic": "ocean",
+  "name": "Dolphin",
+  "article": "Common bottlenose dolphin"
+ },
+ "ocean__shark": {
+  "file": "Similan_Dive_Center_-_great_whale_shark.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Similan_Dive_Center_-_great_whale_shark.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Abe Khao Lak",
+  "topic": "ocean",
+  "name": "Shark",
+  "article": "Whale shark"
+ },
+ "ocean__octopus": {
+  "file": "Octopus2.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Octopus2.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "albert kok",
+  "topic": "ocean",
+  "name": "Octopus",
+  "article": "Common octopus"
+ },
+ "ocean__crab": {
+  "file": "Cancer_pagurus.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cancer_pagurus.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Hans Hillewaert",
+  "topic": "ocean",
+  "name": "Crab",
+  "article": "Crab"
+ },
+ "ocean__shrimp": {
+  "file": "Heterocarpus_ensifer.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Heterocarpus_ensifer.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NOAA",
+  "topic": "ocean",
+  "name": "Shrimp",
+  "article": "Caridea"
+ },
+ "ocean__squid": {
+  "file": "Sepioteuthis_sepioidea_(Caribbean_Reef_Squid).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sepioteuthis_sepioidea_(Caribbean_Reef_Squid).jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Nhobgood Nick Hobgood",
+  "topic": "ocean",
+  "name": "Squid",
+  "article": "Squid"
+ },
+ "ocean__sea_turtle": {
+  "file": "Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Charles J. Sharp",
+  "topic": "ocean",
+  "name": "Sea Turtle",
+  "article": "Green sea turtle"
+ },
+ "ocean__clownfish": {
+  "file": "Clown_fish_in_the_Andaman_Coral_Reef.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Clown_fish_in_the_Andaman_Coral_Reef.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Ritiks",
+  "topic": "ocean",
+  "name": "Clownfish",
+  "article": "Ocellaris clownfish"
+ },
+ "ocean__lobster": {
+  "file": "Nur01521_-_Flickr_-_NOAA_Photo_Library.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Nur01521_-_Flickr_-_NOAA_Photo_Library.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "OAR/National Undersea Research Program (NURP).",
+  "topic": "ocean",
+  "name": "Lobster",
+  "article": "American lobster"
+ },
+ "ocean__fish": {
+  "file": "Gold_fish1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Gold_fish1.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "לינה אבוגוש",
+  "topic": "ocean",
+  "name": "Fish",
+  "article": "Goldfish"
+ },
+ "colors__red": {
+  "file": "Garden_strawberry_(Fragaria_×_ananassa)_single2.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Garden_strawberry_(Fragaria_%C3%97_ananassa)_single2.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ivar Leidus",
+  "topic": "colors",
+  "name": "Red",
+  "article": "Strawberry"
+ },
+ "colors__orange": {
+  "file": "FrenchMarketPumpkinsB.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:FrenchMarketPumpkinsB.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Infrogmation of New Orleans",
+  "topic": "colors",
+  "name": "Orange",
+  "article": "Pumpkin"
+ },
+ "colors__yellow": {
+  "file": "Sunflower head 2026 G1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sunflower_head_2026_G1.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "George Chernilevsky",
+  "topic": "colors",
+  "name": "Yellow",
+  "article": "Common sunflower"
+ },
+ "colors__green": {
+  "file": "Lisc_lipy.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Lisc_lipy.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Krzysztof P. Jasiutowicz",
+  "topic": "colors",
+  "name": "Green",
+  "article": "Leaf"
+ },
+ "colors__purple": {
+  "file": "Solanum_melongena_24_08_2012_(1).JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Solanum_melongena_24_08_2012_(1).JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Joydeep",
+  "topic": "colors",
+  "name": "Purple",
+  "article": "Eggplant"
+ },
+ "colors__brown": {
+  "file": "Three_Bars_(1).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Three_Bars_(1).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Lynnereal",
+  "topic": "colors",
+  "name": "Brown",
+  "article": "Chocolate"
+ },
+ "colors__black": {
+  "file": "Свет_от_деревни_-_panoramio.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B2%D0%B5%D1%82_%D0%BE%D1%82_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BD%D0%B8_-_panoramio.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Alexey Elfimov",
+  "topic": "colors",
+  "name": "Black",
+  "article": "Night sky"
+ },
+ "colors__white": {
+  "file": "CargoNet_Di_12_Euro_4000_Lønsdal_-_Bolna.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:CargoNet_Di_12_Euro_4000_L%C3%B8nsdal_-_Bolna.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Kabelleger / David Gubler (http://www.bahnbilder.ch).",
+  "topic": "colors",
+  "name": "White",
+  "article": "Snow"
+ },
+ "colors__pink": {
+  "file": "Sakura_and_Moss_Pink_-_桜(さくら)と芝桜(しばざくら).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sakura_and_Moss_Pink_-_%E6%A1%9C(%E3%81%95%E3%81%8F%E3%82%89)%E3%81%A8%E8%8A%9D%E6%A1%9C(%E3%81%97%E3%81%B0%E3%81%96%E3%81%8F%E3%82%89).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "TANAKA Juuyoh (田中十洋)",
+  "topic": "colors",
+  "name": "Pink",
+  "article": "Cherry blossom"
+ },
+ "space__sun": {
+  "file": "The Sun by the Atmospheric Imaging Assembly of NASA's Solar Dynamics Observatory - 20100819.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA/SDO (AIA)",
+  "topic": "space",
+  "name": "Sun",
+  "article": "Sun"
+ },
+ "space__mercury": {
+  "file": "Mercury_in_true_color.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mercury_in_true_color.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA/Johns Hopkins University Applied Physics Laboratory/Arizona State University/Carnegie Institution of Washington",
+  "topic": "space",
+  "name": "Mercury",
+  "article": "Mercury (planet)"
+ },
+ "space__venus": {
+  "file": "Venus globe.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Venus_globe.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA/JPL",
+  "topic": "space",
+  "name": "Venus",
+  "article": "Venus"
+ },
+ "space__earth": {
+  "file": "The Earth seen from Apollo 17.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans",
+  "topic": "space",
+  "name": "Earth",
+  "article": "Earth"
+ },
+ "space__mars": {
+  "file": "Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png",
+  "source": "https://commons.wikimedia.org/wiki/File:Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Kevin Gill from Los Angeles, CA, United States",
+  "topic": "space",
+  "name": "Mars",
+  "article": "Mars"
+ },
+ "space__jupiter": {
+  "file": "Jupiter_OPAL_2024.png",
+  "source": "https://commons.wikimedia.org/wiki/File:Jupiter_OPAL_2024.png",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA/STSCI (S.T.A.R.S)",
+  "topic": "space",
+  "name": "Jupiter",
+  "article": "Jupiter"
+ },
+ "space__saturn": {
+  "file": "Saturn - April 25 2016 (37612580000).png",
+  "source": "https://commons.wikimedia.org/wiki/File:Saturn_-_April_25_2016_(37612580000).png",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Kevin Gill from Los Angeles, CA, United States",
+  "topic": "space",
+  "name": "Saturn",
+  "article": "Saturn"
+ },
+ "space__uranus": {
+  "file": "Uranus as seen by NASA's Voyager 2 (remastered) - JPEG converted.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Uranus_as_seen_by_NASA%27s_Voyager_2_(remastered)_-_JPEG_converted.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA",
+  "topic": "space",
+  "name": "Uranus",
+  "article": "Uranus"
+ },
+ "space__neptune": {
+  "file": "Neptune Full.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Neptune_Full.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA",
+  "topic": "space",
+  "name": "Neptune",
+  "article": "Neptune"
+ },
+ "space__moon": {
+  "file": "FullMoon2010.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Gregory H. Revera",
+  "topic": "space",
+  "name": "Moon",
+  "article": "Moon"
+ },
+ "countries__india": {
+  "file": "Taj_Mahal_(Edited).jpeg",
+  "source": "https://commons.wikimedia.org/wiki/File:Taj_Mahal_(Edited).jpeg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Yann; edited by Jim Carter",
+  "topic": "countries",
+  "name": "India",
+  "article": "Taj Mahal"
+ },
+ "countries__united_states": {
+  "file": "Front_view_of_Statue_of_Liberty_(cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Front_view_of_Statue_of_Liberty_(cropped).jpg",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "AskALotl",
+  "topic": "countries",
+  "name": "United States",
+  "article": "Statue of Liberty"
+ },
+ "countries__united_kingdom": {
+  "file": "Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster,_London.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster,_London.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Christian David",
+  "topic": "countries",
+  "name": "United Kingdom",
+  "article": "Big Ben"
+ },
+ "countries__japan": {
+  "file": "View_of_Mount_Fuji_from_Ōwakudani_20211202.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Suicasmo",
+  "topic": "countries",
+  "name": "Japan",
+  "article": "Mount Fuji"
+ },
+ "countries__china": {
+  "file": "The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Severin.stalder",
+  "topic": "countries",
+  "name": "China",
+  "article": "Great Wall of China"
+ },
+ "countries__brazil": {
+  "file": "Amazon17_(5641020319).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Amazon17_(5641020319).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "CIAT",
+  "topic": "countries",
+  "name": "Brazil",
+  "article": "Amazon rainforest"
+ },
+ "countries__egypt": {
+  "file": "All Gizah Pyramids.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Ricardo Liberato",
+  "topic": "countries",
+  "name": "Egypt",
+  "article": "Giza pyramid complex"
+ },
+ "countries__australia": {
+  "file": "Sydney_Opera_House_2026.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_2026.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "BAVhah",
+  "topic": "countries",
+  "name": "Australia",
+  "article": "Sydney Opera House"
+ },
+ "countries__canada": {
+  "file": "3Falls_Niagara.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:3Falls_Niagara.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Saffron Blaze",
+  "topic": "countries",
+  "name": "Canada",
+  "article": "Niagara Falls"
+ },
+ "countries__mexico": {
+  "file": "Chichen_Itza_3.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Chichen_Itza_3.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Daniel Schwen",
+  "topic": "countries",
+  "name": "Mexico",
+  "article": "Chichen Itza"
+ },
+ "countries__france": {
+  "file": "Tour_Eiffel_Wikimedia_Commons_(cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_(cropped).jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Benh LIEU SONG",
+  "topic": "countries",
+  "name": "France",
+  "article": "Eiffel Tower"
+ },
+ "countries__kenya": {
+  "file": "Three zebras in Masai Mara National Park, Kenya.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Three_zebras_in_Masai_Mara_National_Park,_Kenya.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Volodymyr Burdiak",
+  "topic": "countries",
+  "name": "Kenya",
+  "article": "Maasai Mara"
+ },
+ "body__eyes": {
+  "file": "Human_eye_with_blood_vessels.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Human_eye_with_blood_vessels.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "ROTFLOLEB",
+  "topic": "body",
+  "name": "Eyes",
+  "article": "Human eye"
+ },
+ "body__ears": {
+  "file": "Human_right_ear_(cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Human_right_ear_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Genusfotografen (Tomas Gunnarsson) / Wikimedia Sverige",
+  "topic": "body",
+  "name": "Ears",
+  "article": "Ear"
+ },
+ "body__mouth": {
+  "file": "Little_kid_smiling..jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Little_kid_smiling..jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "מכוניתטלר123",
+  "topic": "body",
+  "name": "Mouth",
+  "article": "Smile"
+ },
+ "body__teeth": {
+  "file": "06-10-06smile.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:06-10-06smile.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "dozenist",
+  "topic": "body",
+  "name": "Teeth",
+  "article": "Human tooth"
+ },
+ "body__hand": {
+  "file": "Hand,_fingers_-_back.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Hand,_fingers_-_back.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
+  "topic": "body",
+  "name": "Hand",
+  "article": "Hand"
+ },
+ "body__foot": {
+  "file": "Foot_on_white_background.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Foot_on_white_background.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
+  "topic": "body",
+  "name": "Foot",
+  "article": "Foot"
+ },
+ "body__bones": {
+  "file": "Human-Skeleton.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Human-Skeleton.jpg",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Sklmsta",
+  "topic": "body",
+  "name": "Bones",
+  "article": "Human skeleton"
+ },
+ "fruits__apple": {
+  "file": "Red Apple.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Red_Apple.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Abhijit Tembhekar from Mumbai, India",
+  "topic": "fruits",
+  "name": "Apple",
+  "article": "Apple"
+ },
+ "fruits__banana": {
+  "file": "Cavendish banana from Maracaibo.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cavendish_banana_from_Maracaibo.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Wilfredor",
+  "topic": "fruits",
+  "name": "Banana",
+  "article": "Banana"
+ },
+ "fruits__grapes": {
+  "file": "Grapes,_Rostov-on-Don,_Russia.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Grapes,_Rostov-on-Don,_Russia.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Vyacheslav Argenberg",
+  "topic": "fruits",
+  "name": "Grapes",
+  "article": "Grape"
+ },
+ "fruits__strawberry": {
+  "file": "Garden_strawberry_(Fragaria_×_ananassa)_single2.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Garden_strawberry_(Fragaria_%C3%97_ananassa)_single2.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ivar Leidus",
+  "topic": "fruits",
+  "name": "Strawberry",
+  "article": "Strawberry"
+ },
+ "fruits__orange": {
+  "file": "Oranges_-_whole-halved-segment.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Oranges_-_whole-halved-segment.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ivar Leidus",
+  "topic": "fruits",
+  "name": "Orange",
+  "article": "Orange (fruit)"
+ },
+ "fruits__watermelon": {
+  "file": "Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Fred Hsu (Wikipedia:User:Fred Hsu on en.wikipedia)",
+  "topic": "fruits",
+  "name": "Watermelon",
+  "article": "Watermelon"
+ },
+ "fruits__pineapple": {
+  "file": "കൈതച്ചക്ക.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Suniltg at Malayalam Wikipedia",
+  "topic": "fruits",
+  "name": "Pineapple",
+  "article": "Pineapple"
+ },
+ "fruits__mango": {
+  "file": "Mangos_-_single_and_halved.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mangos_-_single_and_halved.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ivar Leidus",
+  "topic": "fruits",
+  "name": "Mango",
+  "article": "Mango"
+ },
+ "fruits__cherries": {
+  "file": "Cherry_season_(48216568227).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cherry_season_(48216568227).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "spurekar",
+  "topic": "fruits",
+  "name": "Cherries",
+  "article": "Cherry"
+ },
+ "fruits__pear": {
+  "file": "Pears.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Pears.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Keith Weller",
+  "topic": "fruits",
+  "name": "Pear",
+  "article": "Pear"
+ },
+ "fruits__lemon": {
+  "file": "P1030323.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:P1030323.JPG",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Elena Chochkova",
+  "topic": "fruits",
+  "name": "Lemon",
+  "article": "Lemon"
+ },
+ "veggies__carrot": {
+  "file": "Vegetable-Carrot-Bundle-wStalks.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Vegetable-Carrot-Bundle-wStalks.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Evan-Amos",
+  "topic": "veggies",
+  "name": "Carrot",
+  "article": "Carrot"
+ },
+ "veggies__corn": {
+  "file": "CookedCornOnTheCob.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:CookedCornOnTheCob.JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Jonathunder",
+  "topic": "veggies",
+  "name": "Corn",
+  "article": "Corn on the cob"
+ },
+ "veggies__potato": {
+  "file": "Patates.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Patates.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Scott Bauer, USDA ARS",
+  "topic": "veggies",
+  "name": "Potato",
+  "article": "Potato"
+ },
+ "veggies__cucumber": {
+  "file": "ARS_cucumber.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:ARS_cucumber.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Stephen Ausmus, USDA ARS",
+  "topic": "veggies",
+  "name": "Cucumber",
+  "article": "Cucumber"
+ },
+ "veggies__eggplant": {
+  "file": "Solanum_melongena_24_08_2012_(1).JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Solanum_melongena_24_08_2012_(1).JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Joydeep",
+  "topic": "veggies",
+  "name": "Eggplant",
+  "article": "Eggplant"
+ },
+ "veggies__chili_pepper": {
+  "file": "Madame_Jeanette_and_other_chillies.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Madame_Jeanette_and_other_chillies.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Takeaway",
+  "topic": "veggies",
+  "name": "Chili Pepper",
+  "article": "Chili pepper"
+ },
+ "veggies__onion": {
+  "file": "Mixed_onions.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mixed_onions.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Colin",
+  "topic": "veggies",
+  "name": "Onion",
+  "article": "Onion"
+ },
+ "veggies__garlic": {
+  "file": "Garlic bulbs and cloves.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Garlic_bulbs_and_cloves.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ivar Leidus",
+  "topic": "veggies",
+  "name": "Garlic",
+  "article": "Garlic"
+ },
+ "veggies__sweet_potato": {
+  "file": "Ipomoea_batatas_006.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Ipomoea_batatas_006.JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Llez",
+  "topic": "veggies",
+  "name": "Sweet Potato",
+  "article": "Sweet potato"
+ },
+ "vehicles__car": {
+  "file": "White_Toyota_Corolla_sedan_in_San_Jose_California_dllu.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:White_Toyota_Corolla_sedan_in_San_Jose_California_dllu.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Daniel Lu (User:dllu)",
+  "topic": "vehicles",
+  "name": "Car",
+  "article": "Car"
+ },
+ "vehicles__bus": {
+  "file": "LTZ1328-19-20241030-160332.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:LTZ1328-19-20241030-160332.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "SIA321",
+  "topic": "vehicles",
+  "name": "Bus",
+  "article": "Bus"
+ },
+ "vehicles__train": {
+  "file": "Поезд_на_фоне_горы_Шатрище._Воронежская_область.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4_%D0%BD%D0%B0_%D1%84%D0%BE%D0%BD%D0%B5_%D0%B3%D0%BE%D1%80%D1%8B_%D0%A8%D0%B0%D1%82%D1%80%D0%B8%D1%89%D0%B5._%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Алексей Задонский",
+  "topic": "vehicles",
+  "name": "Train",
+  "article": "Train"
+ },
+ "vehicles__airplane": {
+  "file": "United_A320_N405UA_at_BOS_(33787222465).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:United_A320_N405UA_at_BOS_(33787222465).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "G B_NZ",
+  "topic": "vehicles",
+  "name": "Airplane",
+  "article": "Airliner"
+ },
+ "vehicles__helicopter": {
+  "file": "VH-SUF_Taking_Off.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:VH-SUF_Taking_Off.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Fly45yt",
+  "topic": "vehicles",
+  "name": "Helicopter",
+  "article": "Helicopter"
+ },
+ "vehicles__sailboat": {
+  "file": "Zoutelande (NL), Strand, Blick auf die Nordsee -- 2022 -- 4984.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Zoutelande_(NL),_Strand,_Blick_auf_die_Nordsee_--_2022_--_4984.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Dietmar Rabich",
+  "topic": "vehicles",
+  "name": "Sailboat",
+  "article": "Sailboat"
+ },
+ "vehicles__ship": {
+  "file": "Icon_of_the_Seas_Puerto_Rico_2025_(cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Icon_of_the_Seas_Puerto_Rico_2025_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Corey Seeman",
+  "topic": "vehicles",
+  "name": "Ship",
+  "article": "Cruise ship"
+ },
+ "vehicles__bicycle": {
+  "file": "Left_side_of_Flying_Pigeon.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Left_side_of_Flying_Pigeon.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "齐健 from Peking, People's Republic of China",
+  "topic": "vehicles",
+  "name": "Bicycle",
+  "article": "Bicycle"
+ },
+ "vehicles__fire_truck": {
+  "file": "Dublin_Fire_Brigade_Pump_Ladder_D32.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Dublin_Fire_Brigade_Pump_Ladder_D32.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "William Murphy",
+  "topic": "vehicles",
+  "name": "Fire Truck",
+  "article": "Fire engine"
+ },
+ "vehicles__ambulance": {
+  "file": "Stockholm,_ambulans,_2014,_21.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Stockholm,_ambulans,_2014,_21.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "AleWi",
+  "topic": "vehicles",
+  "name": "Ambulance",
+  "article": "Ambulance"
+ },
+ "vehicles__tractor": {
+  "file": "Ford_8N.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ford_8N.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Mulad",
+  "topic": "vehicles",
+  "name": "Tractor",
+  "article": "Tractor"
+ },
+ "vehicles__rocket": {
+  "file": "Soyuz_TMA-9_launch.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Soyuz_TMA-9_launch.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Bill Ingalls",
+  "topic": "vehicles",
+  "name": "Rocket",
+  "article": "Rocket"
+ },
+ "bugs__bee": {
+  "file": "Apis_mellifera_Western_honey_bee.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Western_honey_bee.jpg",
+  "license": "CC BY-SA 2.5",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "artist": "Andreas Trepte",
+  "topic": "bugs",
+  "name": "Bee",
+  "article": "Western honey bee"
+ },
+ "bugs__ladybug": {
+  "file": "7-Spotted-Ladybug-Coccinella-septempunctata-sq1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:7-Spotted-Ladybug-Coccinella-septempunctata-sq1.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Photographer: Dominik Stodulski   Graphic Processing: User:MathKnight",
+  "topic": "bugs",
+  "name": "Ladybug",
+  "article": "Coccinella septempunctata"
+ },
+ "bugs__ant": {
+  "file": "Red_Ant_-_March_2025.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Red_Ant_-_March_2025.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Samantha Henneke from Seagrove, North Carolina, USA",
+  "topic": "bugs",
+  "name": "Ant",
+  "article": "Ant"
+ },
+ "bugs__butterfly": {
+  "file": "Danaus plexippus (7).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_(7).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Thomas Bresson",
+  "topic": "bugs",
+  "name": "Butterfly",
+  "article": "Monarch butterfly"
+ },
+ "bugs__caterpillar": {
+  "file": "Chenille_de_Grand_porte_queue_(macaon).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Chenille_de_Grand_porte_queue_(macaon).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Didier Descouens",
+  "topic": "bugs",
+  "name": "Caterpillar",
+  "article": "Caterpillar"
+ },
+ "bugs__cricket": {
+  "file": "Gryllus_campestris_MHNT.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Gryllus_campestris_MHNT.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Didier Descouens",
+  "topic": "bugs",
+  "name": "Cricket",
+  "article": "Cricket (insect)"
+ },
+ "bugs__spider": {
+  "file": "PlatycryptusUndatusFemale.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:PlatycryptusUndatusFemale.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Kevincollins123",
+  "topic": "bugs",
+  "name": "Spider",
+  "article": "Jumping spider"
+ },
+ "bugs__snail": {
+  "file": "Snail.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Snail.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Geierunited",
+  "topic": "bugs",
+  "name": "Snail",
+  "article": "Snail"
+ },
+ "bugs__mosquito": {
+  "file": "Mosquito 2007-2.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mosquito_2007-2.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Alvesgaspar",
+  "topic": "bugs",
+  "name": "Mosquito",
+  "article": "Mosquito"
+ },
+ "bugs__scorpion": {
+  "file": "Scorpion_Photograph_By_Shantanu_Kuveskar.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Scorpion_Photograph_By_Shantanu_Kuveskar.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Shantanu Kuveskar",
+  "topic": "bugs",
+  "name": "Scorpion",
+  "article": "Scorpion"
+ },
+ "birds__owl": {
+  "file": "American_Barn_Owl_(Tyto_furcata_guatemalae),_Orange_Walk.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:American_Barn_Owl_(Tyto_furcata_guatemalae),_Orange_Walk.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Charles J. Sharp",
+  "topic": "birds",
+  "name": "Owl",
+  "article": "Barn owl"
+ },
+ "birds__eagle": {
+  "file": "Bald_eagle_about_to_fly_in_Alaska_(2016).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Bald_eagle_about_to_fly_in_Alaska_(2016).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Andy Morffew from Itchen Abbas, Hampshire, UK",
+  "topic": "birds",
+  "name": "Eagle",
+  "article": "Bald eagle"
+ },
+ "birds__parrot": {
+  "file": "Scarlet_macaw_(Ara_macao_cyanopterus)_Copan.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Scarlet_macaw_(Ara_macao_cyanopterus)_Copan.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Charles J. Sharp",
+  "topic": "birds",
+  "name": "Parrot",
+  "article": "Scarlet macaw"
+ },
+ "birds__penguin": {
+  "file": "Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Ian Duffy from UK",
+  "topic": "birds",
+  "name": "Penguin",
+  "article": "Emperor penguin"
+ },
+ "birds__flamingo": {
+  "file": "American_Flamingo_JG.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:American_Flamingo_JG.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "JeffreyGammon",
+  "topic": "birds",
+  "name": "Flamingo",
+  "article": "American flamingo"
+ },
+ "birds__peacock": {
+  "file": "Peacock_on_tree_(52077240794).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Peacock_on_tree_(52077240794).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Kandukuru Nagarjun from Bangalore, India",
+  "topic": "birds",
+  "name": "Peacock",
+  "article": "Indian peafowl"
+ },
+ "birds__swan": {
+  "file": "CygneVaires.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:CygneVaires.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Sanchezn",
+  "topic": "birds",
+  "name": "Swan",
+  "article": "Mute swan"
+ },
+ "birds__rooster": {
+  "file": "Male_and_female_chicken_sitting_together.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Andrei Niemimäki from Turku, Finland",
+  "topic": "birds",
+  "name": "Rooster",
+  "article": "Rooster"
+ },
+ "birds__dove": {
+  "file": "Columba_livia_(Rock_Dove,_wild),_Duncansby_Head,_Caithness,_Scotland_1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Columba_livia_(Rock_Dove,_wild),_Duncansby_Head,_Caithness,_Scotland_1.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "william_stephens",
+  "topic": "birds",
+  "name": "Dove",
+  "article": "Rock dove"
+ },
+ "birds__duck": {
+  "file": "Anas_platyrhynchos_male_female_quadrat.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg",
+  "license": "CC BY-SA 2.5",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "artist": "This picture was realized by Richard Bartz by using a Canon EF 70-300mm f/4-5.6 IS USM Lens",
+  "topic": "birds",
+  "name": "Duck",
+  "article": "Mallard"
+ },
+ "birds__turkey": {
+  "file": "20260428_tom_wild_turkey_matthaei_botanical_gardens_PD08952.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:20260428_tom_wild_turkey_matthaei_botanical_gardens_PD08952.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Paul Danese",
+  "topic": "birds",
+  "name": "Turkey",
+  "article": "Wild turkey"
+ },
+ "sports__soccer": {
+  "file": "Football_in_Bloomington,_Indiana,_1995.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Football_in_Bloomington,_Indiana,_1995.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Rick Dikeman",
+  "topic": "sports",
+  "name": "Soccer",
+  "article": "Association football"
+ },
+ "sports__basketball": {
+  "file": "USA_vs._China_Mens_Basketball_-_Beijing_2008_Olympic_Games_(2751923597).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:USA_vs._China_Mens_Basketball_-_Beijing_2008_Olympic_Games_(2751923597).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "kris krüg from Vancouver, Canada",
+  "topic": "sports",
+  "name": "Basketball",
+  "article": "Basketball"
+ },
+ "sports__football": {
+  "file": "Larry_Fitzgerald_catches_TD_at_2009_Pro_Bowl.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Larry_Fitzgerald_catches_TD_at_2009_Pro_Bowl.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Mass Communication Specialist 2nd Class Michael A. Lantron, USN",
+  "topic": "sports",
+  "name": "Football",
+  "article": "American football"
+ },
+ "sports__baseball": {
+  "file": "Tommy_Milone_gives_up_a_home_run_to_Mike_Trout_on_May_21,_2017.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Tommy_Milone_gives_up_a_home_run_to_Mike_Trout_on_May_21,_2017.jpg",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "D. Benjamin Miller",
+  "topic": "sports",
+  "name": "Baseball",
+  "article": "Baseball"
+ },
+ "sports__tennis": {
+  "file": "2013_Australian_Open_-_Guillaume_Rufin.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:2013_Australian_Open_-_Guillaume_Rufin.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Brendan Dennis",
+  "topic": "sports",
+  "name": "Tennis",
+  "article": "Tennis"
+ },
+ "sports__volleyball": {
+  "file": "Brasil_vence_a_França_no_vôlei_masculino_1037987-15.08.2016_ffz-6369.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Brasil_vence_a_Fran%C3%A7a_no_v%C3%B4lei_masculino_1037987-15.08.2016_ffz-6369.jpg",
+  "license": "CC BY 3.0 br",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+  "artist": "Fernando Frazão/Agência Brasil",
+  "topic": "sports",
+  "name": "Volleyball",
+  "article": "Volleyball"
+ },
+ "sports__table_tennis": {
+  "file": "Mondial_Ping_-_Men's_Singles_-_Round_4_-_Kenta_Matsudaira-Vladimir_Samsonov_-_57.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mondial_Ping_-_Men%27s_Singles_-_Round_4_-_Kenta_Matsudaira-Vladimir_Samsonov_-_57.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Pierre-Yves Beaudouin",
+  "topic": "sports",
+  "name": "Table Tennis",
+  "article": "Table tennis"
+ },
+ "sports__badminton": {
+  "file": "Olympics_2012_Mixed_Doubles_Final.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Olympics_2012_Mixed_Doubles_Final.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Peter",
+  "topic": "sports",
+  "name": "Badminton",
+  "article": "Badminton"
+ },
+ "sports__ice_hockey": {
+  "file": "Pittsburgh_Penguins,_Washington_Capitals,_Bryan_Rust_(33744033514).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Pittsburgh_Penguins,_Washington_Capitals,_Bryan_Rust_(33744033514).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Keith Allison from Hanover, MD, USA",
+  "topic": "sports",
+  "name": "Ice Hockey",
+  "article": "Ice hockey"
+ },
+ "sports__golf": {
+  "file": "Golfer_swing.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Golfer_swing.jpg",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Lilrizz",
+  "topic": "sports",
+  "name": "Golf",
+  "article": "Golf"
+ },
+ "helpers__firefighter": {
+  "file": "FiremenFightBurningBarn.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:FiremenFightBurningBarn.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "DallasPenner",
+  "topic": "helpers",
+  "name": "Firefighter",
+  "article": "Firefighter"
+ },
+ "helpers__police_officer": {
+  "file": "Very_friendly_MPS_officers_in_London.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Very_friendly_MPS_officers_in_London.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Octagon",
+  "topic": "helpers",
+  "name": "Police Officer",
+  "article": "Police officer"
+ },
+ "helpers__farmer": {
+  "file": "Woman_at_work,_Gujarat.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Woman_at_work,_Gujarat.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Bernard Gagnon",
+  "topic": "helpers",
+  "name": "Farmer",
+  "article": "Farmer"
+ },
+ "helpers__builder": {
+  "file": "Viaduct_construction_(8683442563).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Viaduct_construction_(8683442563).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Oregon Department of Transportation",
+  "topic": "helpers",
+  "name": "Builder",
+  "article": "Construction worker"
+ },
+ "helpers__dentist": {
+  "file": "US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "U.S. Navy photo by Chief Photographer’s Mate Eric A. Clement.",
+  "topic": "helpers",
+  "name": "Dentist",
+  "article": "Dentist"
+ },
+ "fruits__kiwi": {
+  "file": "A half cut kiwifruit in West Bengal, India.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:A_half_cut_kiwifruit_in_West_Bengal,_India.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Billjones94",
+  "topic": "fruits",
+  "name": "Kiwi",
+  "article": "Kiwifruit"
+ },
+ "veggies__broccoli": {
+  "file": "Brocoli 03.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Brocoli_03.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Coyau",
+  "topic": "veggies",
+  "name": "Broccoli",
+  "article": "Brocoli 03"
+ },
+ "veggies__lettuce": {
+  "file": "Lactuca sativa 'Ashbrook'.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Lactuca_sativa_%27Ashbrook%27.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "DeFacto",
+  "topic": "veggies",
+  "name": "Lettuce",
+  "article": "Lactuca sativa 'Ashbrook'"
+ },
+ "helpers__teacher": {
+  "file": "Free Education for Underprivileged children.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Free_Education_for_Underprivileged_children.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "TAPAS KUMAR HALDER",
+  "topic": "helpers",
+  "name": "Teacher",
+  "article": "Free Education for Underprivileged children"
+ },
+ "helpers__chef": {
+  "file": "Chef Vijaya Raghavan.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Chef_Vijaya_Raghavan.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Chef Vijaya Raghavan",
+  "topic": "helpers",
+  "name": "Chef",
+  "article": "Chef Vijaya Raghavan"
+ },
+ "helpers__pilot": {
+  "file": "DFC 5867 Cockpit of a vintage commercial airliner showing flight instruments controls and the pilots seat.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:DFC_5867_Cockpit_of_a_vintage_commercial_airliner_showing_flight_instruments_controls_and_the_pilots_seat.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "PattayaPatrol",
+  "topic": "helpers",
+  "name": "Pilot",
+  "article": "DFC 5867 Cockpit of a vintage commercial airliner showing flight instruments controls and the pilots seat"
+ },
+ "helpers__scientist": {
+  "file": "Engin Umut Akkaya - In the Lab.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Engin_Umut_Akkaya_-_In_the_Lab.JPG",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Yigit Altay",
+  "topic": "helpers",
+  "name": "Scientist",
+  "article": "Engin Umut Akkaya - In the Lab"
+ },
+ "helpers__artist": {
+  "file": "Self portrait as a painter - Vincent van Gogh.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Self_portrait_as_a_painter_-_Vincent_van_Gogh.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "GoldenArtists",
+  "topic": "helpers",
+  "name": "Artist",
+  "article": "Self portrait as a painter - Vincent van Gogh"
+ },
+ "colors__blue": {
+  "file": "Cirrus uncinus clouds in the morning sky.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cirrus_uncinus_clouds_in_the_morning_sky.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "ADARSHluck",
+  "topic": "colors",
+  "name": "Blue",
+  "article": "Cirrus uncinus clouds in the morning sky"
+ },
+ "sports__cricket": {
+  "file": "Cricketer bowled.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cricketer_bowled.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Lemonlolly",
+  "topic": "sports",
+  "name": "Cricket",
+  "article": "Cricketer bowled"
+ },
+ "helpers__doctor": {
+  "file": "A Continuing Promise 2015 physician examines a child.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:A_Continuing_Promise_2015_physician_examines_a_child.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Official U.S. Navy Page",
+  "topic": "helpers",
+  "name": "Doctor",
+  "article": "A Continuing Promise 2015 physician examines a child"
+ },
+ "land__mountain": {
+  "file": "Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg",
+  "license": "CC BY-SA 2.5",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "artist": "Luca Galuzzi (Lucag)",
+  "topic": "land",
+  "name": "Mountain",
+  "article": "Mountain"
+ },
+ "land__volcano": {
+  "file": "Augustine_volcano_Jan_24_2006_-_Cyrus_Read.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Augustine_volcano_Jan_24_2006_-_Cyrus_Read.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Cyrus Read\nGeophysicist\nUSGS, Alaska Volcano Observatory\n\ncread@usgs.gov",
+  "topic": "land",
+  "name": "Volcano",
+  "article": "Volcano"
+ },
+ "land__island": {
+  "file": "Aerial View, Sanshan Island, Hailing Island, Jiangcheng District, Yangjiang City.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Aerial_View,_Sanshan_Island,_Hailing_Island,_Jiangcheng_District,_Yangjiang_City.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "YikyuenG",
+  "topic": "land",
+  "name": "Island",
+  "article": "Island"
+ },
+ "land__desert": {
+  "file": "Rub_al_Khali_002.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Rub_al_Khali_002.JPG",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Nepenthes",
+  "topic": "land",
+  "name": "Desert",
+  "article": "Desert"
+ },
+ "land__river": {
+  "file": "Pirogue_running_on_the_Mekong_at_golden_hour_between_Don_Det_and_Don_Khon_Laos.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Pirogue_running_on_the_Mekong_at_golden_hour_between_Don_Det_and_Don_Khon_Laos.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Basile Morin",
+  "topic": "land",
+  "name": "River",
+  "article": "River"
+ },
+ "land__lake": {
+  "file": "Lake_Idro_Italy_2005-08-16.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Lake_Idro_Italy_2005-08-16.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "No machine-readable author provided. Marius~commonswiki assumed (based on copyright claims).",
+  "topic": "land",
+  "name": "Lake",
+  "article": "Lake"
+ },
+ "land__waterfall": {
+  "file": "Cascada_Dynjandi,_Vestfirðir,_Islandia,_2014-08-14,_DD_136-138_HDR.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Cascada_Dynjandi,_Vestfir%C3%B0ir,_Islandia,_2014-08-14,_DD_136-138_HDR.JPG",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Diego Delso",
+  "topic": "land",
+  "name": "Waterfall",
+  "article": "Waterfall"
+ },
+ "land__forest": {
+  "file": "Aerial_view_of_the_Amazon_Rainforest.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Amazon_Rainforest.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "lubasi",
+  "topic": "land",
+  "name": "Forest",
+  "article": "Forest"
+ },
+ "land__beach": {
+  "file": "Beach_at_Fort_Lauderdale.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Beach_at_Fort_Lauderdale.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Daniel Dudek",
+  "topic": "land",
+  "name": "Beach",
+  "article": "Beach"
+ },
+ "land__ocean": {
+  "file": "Ponta do Pargo (Madeira, Portugal), Farol da Ponta do Pargo, Blick auf den Atlantik -- 2025 -- 1805.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ponta_do_Pargo_(Madeira,_Portugal),_Farol_da_Ponta_do_Pargo,_Blick_auf_den_Atlantik_--_2025_--_1805.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Dietmar Rabich",
+  "topic": "land",
+  "name": "Ocean",
+  "article": "Ocean"
+ },
+ "land__glacier": {
+  "file": "Geikie_Plateau_Glacier.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Geikie_Plateau_Glacier.JPG",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "NASA / Christy Hansen",
+  "topic": "land",
+  "name": "Glacier",
+  "article": "Glacier"
+ },
+ "land__cave": {
+  "file": "Lechuguilla_Cave_Pearlsian_Gulf.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Lechuguilla_Cave_Pearlsian_Gulf.jpg",
+  "license": "CC BY-SA 2.5",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "artist": "Dave Bunnell / Under Earth Images",
+  "topic": "land",
+  "name": "Cave",
+  "article": "Cave"
+ }
+}

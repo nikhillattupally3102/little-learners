@@ -1,0 +1,12 @@
+// Cloudflare (Workers static assets) hosting for the web app.
+// Deploy: ./tool/build_web.sh && npx wrangler deploy
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "little-learners",
+  "compatibility_date": "2026-11-19",
+  "assets": {
+    "directory": "build/web"
+  },
+  "workers_dev": true,
+  "preview_urls": false
+}

@@ -1,0 +1,345 @@
+<title>Little Learners Picture Pack</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Layout: a kids' sticker sheet — three labelled trays of picture tiles on a warm page. */
+:root {
+  --bg: #FFF8EC;
+  --fg: #2D2A4A;
+  --muted: #6B6787;
+  --surface: #FFFFFF;
+  --line: #EADFCB;
+  --animals: #FFE7B8;
+  --fruits: #FFD9DE;
+  --body: #D8ECFF;
+  --chip: #2D2A4A;
+  --chip-fg: #FFFFFF;
+  --display: "Fredoka", "Nunito", system-ui, sans-serif;
+  --text: "Nunito", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1D1A2B; --fg: #F4F0FF; --muted: #B4AECB; --surface: #2A263D; --line: #3A3552;
+    --animals: #F5DDAE; --fruits: #F5CFD5; --body: #CFE3F7; --chip: #F4F0FF; --chip-fg: #1D1A2B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1D1A2B; --fg: #F4F0FF; --muted: #B4AECB; --surface: #2A263D; --line: #3A3552;
+  --animals: #F5DDAE; --fruits: #F5CFD5; --body: #CFE3F7; --chip: #F4F0FF; --chip-fg: #1D1A2B;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 40px;
+}
+header { display: grid; gap: 10px; max-width: 62ch; }
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
+}
+.lede { margin: 0; color: var(--muted); font-size: 1.05rem; }
+.specs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.spec {
+  font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; background: var(--chip); color: var(--chip-fg);
+}
+section { display: grid; gap: 16px; }
+.section-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; margin: 0; }
+.count { color: var(--muted); font-weight: 600; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+figure {
+  margin: 0;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 22px;
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  transition: transform .2s ease;
+}
+figure:hover { transform: translateY(-4px) rotate(-1deg); }
+@media (prefers-reduced-motion: reduce) { figure, figure:hover { transition: none; transform: none; } }
+.tile { width: 100%; max-width: 100%; aspect-ratio: 1; border-radius: 16px; display: grid; place-items: center; }
+#animals .tile { background: var(--animals); }
+#fruits .tile { background: var(--fruits); }
+#body .tile { background: var(--body); }
+svg { width: 84%; height: 84%; overflow: visible; }
+figcaption { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
+footer { color: var(--muted); font-size: .95rem; max-width: 62ch; }
+
+/* Illustration style: shared by every picture. */
+.o { stroke: #2D2A4A; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.l { fill: none; stroke: #2D2A4A; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.ink { fill: #2D2A4A; }
+.shine { fill: #FFFFFF; opacity: .55; }
+.cheek { fill: #FF8FA3; opacity: .7; }
+</style>
+
+<main class="page">
+  <header>
+    <h1>Little Learners Picture Pack</h1>
+    <p class="lede">A sample of pictures drawn in code for the app: animals, fruits and body parts in one matching style. They look the same on every phone, tablet and browser, and stay sharp at any size.</p>
+    <div class="specs"><span class="spec">24 pictures</span><span class="spec">Vector (SVG)</span><span class="spec">No emoji</span></div>
+  </header>
+
+  <section id="animals" aria-labelledby="h-animals">
+    <div class="section-head"><h2 id="h-animals">Animals</h2><span class="count">8 pictures</span></div>
+    <div class="grid">
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Lion">
+        <g fill="#E8892B" class="o">
+          <circle cx="104" cy="62" r="12"/><circle cx="98" cy="84" r="12"/><circle cx="82" cy="100" r="12"/><circle cx="60" cy="106" r="12"/>
+          <circle cx="38" cy="100" r="12"/><circle cx="22" cy="84" r="12"/><circle cx="16" cy="62" r="12"/><circle cx="22" cy="40" r="12"/>
+          <circle cx="38" cy="24" r="12"/><circle cx="60" cy="18" r="12"/><circle cx="82" cy="24" r="12"/><circle cx="98" cy="40" r="12"/>
+        </g>
+        <circle cx="60" cy="62" r="44" fill="#E8892B"/>
+        <circle cx="38" cy="38" r="9" fill="#F6C453" class="o"/><circle cx="82" cy="38" r="9" fill="#F6C453" class="o"/>
+        <circle cx="60" cy="64" r="30" fill="#F6C453" class="o"/>
+        <ellipse cx="60" cy="77" rx="14" ry="10" fill="#FBE3A6"/>
+        <circle class="cheek" cx="41" cy="72" r="4"/><circle class="cheek" cx="79" cy="72" r="4"/>
+        <circle class="ink" cx="49" cy="58" r="4"/><circle class="ink" cx="71" cy="58" r="4"/>
+        <path d="M54 69 H66 L60 75 Z" fill="#8A4B2A" class="o" style="stroke-width:3"/>
+        <path class="l" style="stroke-width:3" d="M60 75 Q56 82 51 79 M60 75 Q64 82 69 79"/>
+      </svg></div><figcaption>Lion</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Elephant">
+        <ellipse cx="26" cy="56" rx="22" ry="27" fill="#9EADC2" class="o"/><ellipse cx="94" cy="56" rx="22" ry="27" fill="#9EADC2" class="o"/>
+        <ellipse cx="26" cy="57" rx="13" ry="17" fill="#F4B6C2"/><ellipse cx="94" cy="57" rx="13" ry="17" fill="#F4B6C2"/>
+        <ellipse cx="60" cy="54" rx="30" ry="32" fill="#B8C4D6" class="o"/>
+        <path d="M51 72 C49 92 52 106 66 107 C74 107 78 100 73 96 C66 100 61 95 63 87 L69 72" fill="#B8C4D6" class="o"/>
+        <path class="l" style="stroke-width:3" d="M55 90 H63 M56 98 H63"/>
+        <path d="M45 76 Q38 90 47 92 Z" fill="#FFFFFF" class="o" style="stroke-width:3"/><path d="M75 76 Q82 90 73 92 Z" fill="#FFFFFF" class="o" style="stroke-width:3"/>
+        <circle class="ink" cx="47" cy="50" r="4"/><circle class="ink" cx="73" cy="50" r="4"/>
+        <circle class="cheek" cx="42" cy="62" r="4"/><circle class="cheek" cx="78" cy="62" r="4"/>
+      </svg></div><figcaption>Elephant</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Cat">
+        <path d="M30 52 L34 16 L58 38 Z" fill="#F2A65A" class="o"/><path d="M90 52 L86 16 L62 38 Z" fill="#F2A65A" class="o"/>
+        <path d="M37 42 L39 26 L51 36 Z" fill="#F7A1B0"/><path d="M83 42 L81 26 L69 36 Z" fill="#F7A1B0"/>
+        <ellipse cx="60" cy="66" rx="37" ry="32" fill="#F2A65A" class="o"/>
+        <path d="M60 35 V45 M49 37 L52 46 M71 37 L68 46" fill="none" stroke="#C9702A" stroke-width="4" stroke-linecap="round"/>
+        <ellipse class="ink" cx="46" cy="62" rx="5" ry="6.5"/><ellipse class="ink" cx="74" cy="62" rx="5" ry="6.5"/>
+        <circle cx="47.5" cy="60" r="1.6" fill="#fff"/><circle cx="75.5" cy="60" r="1.6" fill="#fff"/>
+        <path d="M55 72 H65 L60 77 Z" fill="#F27C8E" class="o" style="stroke-width:2.5"/>
+        <path class="l" style="stroke-width:3" d="M60 77 Q55 84 50 79 M60 77 Q65 84 70 79"/>
+        <path class="l" style="stroke-width:2.5" d="M22 70 L40 73 M22 80 L40 78 M98 70 L80 73 M98 80 L80 78"/>
+      </svg></div><figcaption>Cat</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Dog">
+        <ellipse cx="60" cy="62" rx="31" ry="33" fill="#D9A066" class="o"/>
+        <path d="M32 36 C12 42 14 82 30 86 C38 74 40 56 42 42 Z" fill="#8A5A3B" class="o"/>
+        <path d="M88 36 C108 42 106 82 90 86 C82 74 80 56 78 42 Z" fill="#8A5A3B" class="o"/>
+        <ellipse cx="73" cy="47" rx="9" ry="8" fill="#8A5A3B"/>
+        <ellipse cx="60" cy="79" rx="17" ry="12" fill="#F3D3A8" class="o" style="stroke-width:3"/>
+        <path d="M56 85 Q60 97 64 85 Z" fill="#F27C8E" class="o" style="stroke-width:2.5"/>
+        <ellipse class="ink" cx="60" cy="72" rx="7" ry="5"/>
+        <path class="l" style="stroke-width:3" d="M60 77 V81 Q54 87 49 82 M60 81 Q66 87 71 82"/>
+        <circle class="ink" cx="49" cy="57" r="4"/><circle class="ink" cx="71" cy="57" r="4"/>
+      </svg></div><figcaption>Dog</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Frog">
+        <circle cx="38" cy="38" r="16" fill="#6CC24A" class="o"/><circle cx="82" cy="38" r="16" fill="#6CC24A" class="o"/>
+        <ellipse cx="60" cy="68" rx="46" ry="32" fill="#6CC24A" class="o"/>
+        <path d="M24 46 A16 16 0 0 1 52 34 M68 34 A16 16 0 0 1 96 46" fill="#6CC24A"/>
+        <circle cx="38" cy="37" r="9" fill="#fff" class="o" style="stroke-width:3"/><circle cx="82" cy="37" r="9" fill="#fff" class="o" style="stroke-width:3"/>
+        <circle class="ink" cx="39" cy="38" r="4.5"/><circle class="ink" cx="83" cy="38" r="4.5"/>
+        <circle class="ink" cx="54" cy="60" r="2"/><circle class="ink" cx="66" cy="60" r="2"/>
+        <path class="l" d="M30 72 Q60 94 90 72"/>
+        <circle class="cheek" cx="28" cy="80" r="5"/><circle class="cheek" cx="92" cy="80" r="5"/>
+      </svg></div><figcaption>Frog</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Pig">
+        <path d="M30 46 L28 16 L54 32 Z" fill="#F7A8B8" class="o"/><path d="M90 46 L92 16 L66 32 Z" fill="#F7A8B8" class="o"/>
+        <circle cx="60" cy="64" r="37" fill="#F9B8C6" class="o"/>
+        <ellipse cx="60" cy="74" rx="17" ry="12" fill="#F48FA6" class="o" style="stroke-width:3"/>
+        <ellipse cx="54" cy="74" rx="3" ry="4.5" fill="#B5536A"/><ellipse cx="66" cy="74" rx="3" ry="4.5" fill="#B5536A"/>
+        <circle class="ink" cx="46" cy="55" r="4"/><circle class="ink" cx="74" cy="55" r="4"/>
+        <path class="l" style="stroke-width:3" d="M52 92 Q60 97 68 92"/>
+        <circle class="cheek" cx="34" cy="74" r="5"/><circle class="cheek" cx="86" cy="74" r="5"/>
+      </svg></div><figcaption>Pig</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Owl">
+        <path d="M30 34 L34 12 L48 26 Z" fill="#8A5B3A" class="o"/><path d="M90 34 L86 12 L72 26 Z" fill="#8A5B3A" class="o"/>
+        <ellipse cx="60" cy="64" rx="36" ry="44" fill="#A0704D" class="o"/>
+        <ellipse cx="60" cy="82" rx="22" ry="22" fill="#E8C9A0"/>
+        <path d="M50 76 L54 80 L58 76 M62 76 L66 80 L70 76 M56 88 L60 92 L64 88" fill="none" stroke="#A0704D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="27" cy="74" rx="9" ry="20" fill="#8A5B3A" class="o"/><ellipse cx="93" cy="74" rx="9" ry="20" fill="#8A5B3A" class="o"/>
+        <circle cx="44" cy="50" r="14" fill="#fff" class="o" style="stroke-width:3"/><circle cx="76" cy="50" r="14" fill="#fff" class="o" style="stroke-width:3"/>
+        <circle class="ink" cx="45" cy="51" r="6.5"/><circle class="ink" cx="75" cy="51" r="6.5"/>
+        <circle cx="47" cy="48" r="2" fill="#fff"/><circle cx="77" cy="48" r="2" fill="#fff"/>
+        <path d="M55 60 H65 L60 70 Z" fill="#F2B33D" class="o" style="stroke-width:3"/>
+        <path d="M50 106 V113 M56 106 V113 M64 106 V113 M70 106 V113" stroke="#F2B33D" stroke-width="4" stroke-linecap="round"/>
+      </svg></div><figcaption>Owl</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Fish">
+        <path d="M48 38 Q58 20 72 36 Z" fill="#F2994A" class="o"/><path d="M50 82 Q58 98 68 84 Z" fill="#F2994A" class="o"/>
+        <path d="M80 60 L110 38 L104 60 L110 82 Z" fill="#F2994A" class="o"/>
+        <ellipse cx="54" cy="60" rx="38" ry="27" fill="#4FA8F0" class="o"/>
+        <path d="M62 48 Q70 60 62 72 M74 46 Q82 60 74 74" fill="none" stroke="#2E7FC4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="34" cy="54" r="8" fill="#fff" class="o" style="stroke-width:3"/><circle class="ink" cx="35" cy="55" r="4"/>
+        <path class="l" style="stroke-width:3" d="M22 68 Q28 73 34 68"/>
+        <circle cx="12" cy="30" r="5" fill="none" stroke="#4FA8F0" stroke-width="3"/><circle cx="6" cy="16" r="3.5" fill="none" stroke="#4FA8F0" stroke-width="3"/>
+      </svg></div><figcaption>Fish</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="fruits" aria-labelledby="h-fruits">
+    <div class="section-head"><h2 id="h-fruits">Fruits</h2><span class="count">8 pictures</span></div>
+    <div class="grid">
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Apple">
+        <path d="M60 38 C44 26 18 34 20 64 C22 92 42 108 60 100 C78 108 98 92 100 64 C102 34 76 26 60 38 Z" fill="#F2545B" class="o"/>
+        <path d="M60 38 Q60 26 66 16" fill="none" stroke="#7A4A2A" stroke-width="5" stroke-linecap="round"/>
+        <path d="M65 26 Q80 12 92 22 Q80 34 65 26 Z" fill="#6CC24A" class="o" style="stroke-width:3"/>
+        <ellipse class="shine" cx="38" cy="56" rx="6" ry="11" transform="rotate(20 38 56)"/>
+      </svg></div><figcaption>Apple</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Banana">
+        <path d="M24 34 C26 80 64 102 102 80 C106 77 103 70 98 72 C70 82 44 66 36 32 Z" fill="#FFD93D" class="o"/>
+        <path d="M32 40 C40 70 66 84 94 77" fill="none" stroke="#E8B92A" stroke-width="3" stroke-linecap="round"/>
+        <path d="M24 34 L20 24 L32 22 L36 32 Z" fill="#7A5A2A" class="o" style="stroke-width:3"/>
+        <circle class="ink" cx="101" cy="76" r="2.5"/>
+      </svg></div><figcaption>Banana</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Strawberry">
+        <path d="M60 106 C36 98 18 66 26 48 C32 36 48 38 60 42 C72 38 88 36 94 48 C102 66 84 98 60 106 Z" fill="#F2545B" class="o"/>
+        <g fill="#FFE08A">
+          <ellipse cx="44" cy="58" rx="2" ry="3"/><ellipse cx="60" cy="56" rx="2" ry="3"/><ellipse cx="76" cy="58" rx="2" ry="3"/>
+          <ellipse cx="38" cy="72" rx="2" ry="3"/><ellipse cx="52" cy="72" rx="2" ry="3"/><ellipse cx="68" cy="72" rx="2" ry="3"/><ellipse cx="82" cy="72" rx="2" ry="3"/>
+          <ellipse cx="46" cy="86" rx="2" ry="3"/><ellipse cx="60" cy="88" rx="2" ry="3"/><ellipse cx="74" cy="86" rx="2" ry="3"/>
+        </g>
+        <path d="M38 42 L48 28 L55 39 L60 22 L65 39 L72 28 L82 42 Q60 52 38 42 Z" fill="#6CC24A" class="o" style="stroke-width:3"/>
+      </svg></div><figcaption>Strawberry</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Grapes">
+        <path d="M60 22 Q62 12 70 8" fill="none" stroke="#7A4A2A" stroke-width="5" stroke-linecap="round"/>
+        <path d="M63 20 Q78 6 90 18 Q78 30 63 20 Z" fill="#6CC24A" class="o" style="stroke-width:3"/>
+        <g fill="#8E5CF7" class="o" style="stroke-width:3">
+          <circle cx="60" cy="96" r="12"/><circle cx="48" cy="77" r="12"/><circle cx="72" cy="77" r="12"/>
+          <circle cx="36" cy="57" r="12"/><circle cx="60" cy="57" r="12"/><circle cx="84" cy="57" r="12"/>
+          <circle cx="48" cy="37" r="12"/><circle cx="72" cy="37" r="12"/>
+        </g>
+        <g class="shine"><circle cx="44" cy="33" r="3"/><circle cx="68" cy="33" r="3"/><circle cx="32" cy="53" r="3"/><circle cx="56" cy="53" r="3"/><circle cx="80" cy="53" r="3"/><circle cx="44" cy="73" r="3"/><circle cx="68" cy="73" r="3"/><circle cx="56" cy="92" r="3"/></g>
+      </svg></div><figcaption>Grapes</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Orange">
+        <circle cx="60" cy="66" r="40" fill="#FF9F2E" class="o"/>
+        <g fill="#E07B12"><circle cx="44" cy="60" r="1.8"/><circle cx="72" cy="50" r="1.8"/><circle cx="80" cy="76" r="1.8"/><circle cx="50" cy="84" r="1.8"/><circle cx="64" cy="68" r="1.8"/><circle cx="36" cy="76" r="1.8"/><circle cx="86" cy="60" r="1.8"/></g>
+        <ellipse class="shine" cx="44" cy="48" rx="9" ry="5" transform="rotate(-30 44 48)"/>
+        <circle cx="60" cy="27" r="3.5" fill="#7A4A2A"/>
+        <path d="M61 26 Q70 10 86 16 Q78 30 61 26 Z" fill="#6CC24A" class="o" style="stroke-width:3"/>
+      </svg></div><figcaption>Orange</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Watermelon slice">
+        <path d="M10 40 A50 50 0 0 0 110 40 Z" fill="#4CAF50" class="o"/>
+        <path d="M17 40 A43 43 0 0 0 103 40 Z" fill="#E8F5D0"/>
+        <path d="M22 40 A38 38 0 0 0 98 40 Z" fill="#FF5C6C"/>
+        <path class="l" d="M10 40 H110"/>
+        <g class="ink"><ellipse cx="42" cy="54" rx="2.5" ry="4"/><ellipse cx="60" cy="62" rx="2.5" ry="4"/><ellipse cx="78" cy="54" rx="2.5" ry="4"/><ellipse cx="50" cy="70" rx="2.5" ry="4"/><ellipse cx="70" cy="70" rx="2.5" ry="4"/></g>
+      </svg></div><figcaption>Watermelon</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Pear">
+        <path d="M60 24 C50 24 48 38 46 47 C30 57 26 81 34 95 C44 111 76 111 86 95 C94 81 90 57 74 47 C72 38 70 24 60 24 Z" fill="#B5D34A" class="o"/>
+        <path d="M60 24 Q60 15 64 10" fill="none" stroke="#7A4A2A" stroke-width="5" stroke-linecap="round"/>
+        <path d="M63 17 Q78 6 88 15 Q76 25 63 17 Z" fill="#6CC24A" class="o" style="stroke-width:3"/>
+        <ellipse class="shine" cx="44" cy="80" rx="5" ry="10" transform="rotate(15 44 80)"/>
+      </svg></div><figcaption>Pear</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Cherries">
+        <path d="M40 74 Q44 40 70 16 M82 70 Q76 40 70 16" fill="none" stroke="#5B8A2E" stroke-width="4" stroke-linecap="round"/>
+        <path d="M70 17 Q86 6 96 18 Q82 28 70 17 Z" fill="#6CC24A" class="o" style="stroke-width:3"/>
+        <circle cx="38" cy="86" r="19" fill="#D7263D" class="o"/><circle cx="84" cy="82" r="19" fill="#D7263D" class="o"/>
+        <circle class="shine" cx="31" cy="79" r="5"/><circle class="shine" cx="77" cy="75" r="5"/>
+      </svg></div><figcaption>Cherries</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="body" aria-labelledby="h-body">
+    <div class="section-head"><h2 id="h-body">Body Parts</h2><span class="count">8 pictures</span></div>
+    <div class="grid">
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Eye">
+        <path class="l" d="M30 42 L24 33 M45 35 L42 25 M60 32 V22 M75 35 L78 25 M90 42 L96 33"/>
+        <path d="M8 62 Q60 18 112 62 Q60 106 8 62 Z" fill="#FFFFFF" class="o"/>
+        <circle cx="60" cy="62" r="22" fill="#4FA8F0" class="o" style="stroke-width:3"/>
+        <circle class="ink" cx="60" cy="62" r="10"/>
+        <circle cx="67" cy="55" r="4.5" fill="#fff"/>
+      </svg></div><figcaption>Eye</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Ear">
+        <path d="M52 14 C82 10 100 34 96 58 C92 78 76 82 72 96 C68 108 52 110 46 100 C40 92 48 86 48 80 C38 72 30 58 32 42 C34 26 42 16 52 14 Z" fill="#F6C7A0" class="o"/>
+        <path d="M54 32 C72 30 82 44 78 57 C74 68 64 68 60 77" fill="none" stroke="#D9967A" stroke-width="4" stroke-linecap="round"/>
+        <path d="M55 46 C63 46 66 54 60 59" fill="none" stroke="#D9967A" stroke-width="4" stroke-linecap="round"/>
+      </svg></div><figcaption>Ear</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Nose">
+        <path d="M54 16 C54 42 40 58 34 74 C28 92 44 100 54 92 C57 98 63 98 66 92 C76 100 92 92 86 74 C80 58 66 42 66 16 Z" fill="#F6C7A0" class="o"/>
+        <ellipse cx="49" cy="84" rx="6" ry="3.5" fill="#B5734F"/><ellipse cx="71" cy="84" rx="6" ry="3.5" fill="#B5734F"/>
+        <ellipse class="shine" cx="62" cy="58" rx="3" ry="10"/>
+      </svg></div><figcaption>Nose</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Mouth">
+        <path d="M16 50 Q60 36 104 50 Q98 94 60 98 Q22 94 16 50 Z" fill="#E8505B" class="o"/>
+        <path d="M27 56 Q60 50 93 56 Q87 84 60 86 Q33 84 27 56 Z" fill="#7A1F2E"/>
+        <path d="M29 56 Q60 50 91 56 L89 65 Q60 61 31 65 Z" fill="#FFFFFF"/>
+        <ellipse cx="60" cy="79" rx="15" ry="6" fill="#F48FA6"/>
+        <path d="M16 50 Q60 36 104 50 Q98 94 60 98 Q22 94 16 50 Z" fill="none" class="o"/>
+      </svg></div><figcaption>Mouth</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Hand">
+        <g fill="#F6C7A0" class="o">
+          <rect x="30" y="28" width="13" height="42" rx="6.5"/><rect x="44" y="16" width="13" height="52" rx="6.5"/>
+          <rect x="58" y="20" width="13" height="48" rx="6.5"/><rect x="72" y="30" width="13" height="40" rx="6.5"/>
+          <rect x="16" y="58" width="13" height="34" rx="6.5" transform="rotate(-40 22 75)"/>
+          <rect x="30" y="56" width="55" height="50" rx="22"/>
+        </g>
+        <path d="M44 80 Q56 88 70 80" fill="none" stroke="#D9967A" stroke-width="3" stroke-linecap="round"/>
+      </svg></div><figcaption>Hand</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Foot">
+        <path d="M40 36 C28 48 30 76 38 94 C46 110 72 110 80 94 C88 78 82 68 86 54 C90 40 80 32 64 32 Z" fill="#F6C7A0" class="o"/>
+        <g fill="#F6C7A0" class="o" style="stroke-width:3">
+          <circle cx="46" cy="22" r="10"/><circle cx="64" cy="19" r="7.5"/><circle cx="78" cy="23" r="6.5"/><circle cx="89" cy="31" r="5.5"/><circle cx="96" cy="42" r="4.5"/>
+        </g>
+        <ellipse class="shine" cx="56" cy="70" rx="8" ry="16"/>
+      </svg></div><figcaption>Foot</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Tooth">
+        <path d="M28 34 C28 18 46 16 52 22 Q60 28 68 22 C74 16 92 18 92 34 C92 52 86 62 84 80 C82 100 70 104 66 90 L62 76 Q60 72 58 76 L54 90 C50 104 38 100 36 80 C34 62 28 52 28 34 Z" fill="#FFFFFF" class="o"/>
+        <circle class="ink" cx="49" cy="44" r="3.5"/><circle class="ink" cx="71" cy="44" r="3.5"/>
+        <path class="l" style="stroke-width:3" d="M52 54 Q60 61 68 54"/>
+        <circle class="cheek" cx="41" cy="52" r="4"/><circle class="cheek" cx="79" cy="52" r="4"/>
+        <path d="M102 12 L105 19 L112 22 L105 25 L102 32 L99 25 L92 22 L99 19 Z" fill="#FFD93D" class="o" style="stroke-width:2"/>
+      </svg></div><figcaption>Tooth</figcaption></figure>
+
+      <figure><div class="tile"><svg viewBox="0 0 120 120" role="img" aria-label="Brain">
+        <path d="M30 72 C14 68 14 44 30 40 C30 24 46 18 57 25 C63 14 84 16 88 30 C102 30 108 47 99 57 C110 67 101 86 87 83 C83 96 64 98 59 89 C48 98 31 93 30 82 C21 82 21 73 30 72 Z" fill="#F7A8B8" class="o"/>
+        <path d="M59 25 C55 40 64 52 58 64 C53 74 60 82 59 89" fill="none" stroke="#D9738B" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M34 50 Q42 43 49 51 M70 40 Q78 35 84 43 M36 68 Q44 73 50 66 M70 63 Q78 70 86 63 M74 80 Q80 76 84 80" fill="none" stroke="#D9738B" stroke-width="3.5" stroke-linecap="round"/>
+      </svg></div><figcaption>Brain</figcaption></figure>
+    </div>
+  </section>
+
+  <footer>Every picture here is drawn from shapes in code, so the app can colour it, animate it or resize it without blurring. More sets, such as planets, vehicles and weather, can follow in this style.</footer>
+</main>
