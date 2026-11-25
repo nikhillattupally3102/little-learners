@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../models/models.dart' show ShapeKind;
 import '../theme.dart';
+import '../content/figures.dart';
+import 'figure_views.dart';
 import 'pic_index.dart';
 import 'shape_icon.dart';
 
@@ -24,7 +26,10 @@ class Pic extends StatelessWidget {
             .join('-');
 
   static bool has(String emoji) =>
-      shapeOf(emoji) != null || drawnPictures.contains(_code(emoji.trim()));
+      shapeOf(emoji) != null ||
+      emoji.startsWith('fig:') ||
+      emoji.startsWith('paper:') ||
+      drawnPictures.contains(_code(emoji.trim()));
 
   /// `shape:circle` → a drawn circle (shapes have no good emoji).
   static ShapeKind? shapeOf(String emoji) => emoji.trim().startsWith('shape:')
@@ -45,6 +50,10 @@ class Pic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fig = Fig.parse(emoji.trim());
+    if (fig != null) return FigureIcon(fig, size: size * 1.3);
+    final paper = parsePaper(emoji.trim());
+    if (paper != null) return PaperIcon(paper, size: size * 1.2);
     final shape = shapeOf(emoji);
     if (shape != null) {
       return ShapeIcon(shape, shapeColors[shape]!, size: size * 1.3);

@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'figure_views.dart';
+
 import 'pic.dart';
 
 import '../models/models.dart';
@@ -113,6 +115,8 @@ class QuestionVisual extends StatelessWidget {
         ),
       ),
       ShadowVisual(:final emoji) => PopIn(child: ShadowEmoji(emoji, size: 150)),
+      MatrixVisual() => MatrixView(visual as MatrixVisual, accent: accent),
+      FoldVisual() => FoldView(visual as FoldVisual, accent: accent),
       MixedVisual(:final items) => SizedBox(
         width: 460,
         child: Wrap(

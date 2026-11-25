@@ -6,22 +6,32 @@ import '../models/models.dart';
 import '../theme.dart';
 
 class ShapeIcon extends StatelessWidget {
-  const ShapeIcon(this.shape, this.color, {super.key, this.size = 80});
+  const ShapeIcon(
+    this.shape,
+    this.color, {
+    super.key,
+    this.size = 80,
+    this.outline = false,
+  });
   final ShapeKind shape;
   final Color color;
   final double size;
 
+  /// Draw just the edge (an empty shape) instead of a filled one.
+  final bool outline;
+
   @override
   Widget build(BuildContext context) => CustomPaint(
     size: Size.square(size),
-    painter: _ShapePainter(shape, color),
+    painter: _ShapePainter(shape, color, outline),
   );
 }
 
 class _ShapePainter extends CustomPainter {
-  _ShapePainter(this.shape, this.color);
+  _ShapePainter(this.shape, this.color, this.outline);
   final ShapeKind shape;
   final Color color;
+  final bool outline;
 
   Path _path(Size s) {
     final w = s.width, h = s.height;
@@ -82,6 +92,18 @@ class _ShapePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final path = _path(size);
+    if (outline) {
+      canvas.drawPath(path, Paint()..color = Colors.white);
+      canvas.drawPath(
+        path,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = size.width * .09
+          ..strokeJoin = StrokeJoin.round
+          ..color = color,
+      );
+      return;
+    }
     canvas.drawShadow(path, AppColors.darker(color, .5), 3, false);
     canvas.drawPath(path, Paint()..color = color);
     // Glossy highlight.
@@ -109,5 +131,5 @@ class _ShapePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ShapePainter old) =>
-      old.shape != shape || old.color != color;
+      old.shape != shape || old.color != color || old.outline != outline;
 }

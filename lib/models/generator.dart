@@ -11,6 +11,7 @@ import '../generators/math_sheets.dart';
 import '../generators/puzzle_writing_sheets.dart';
 import '../generators/reading_sheets.dart';
 import '../generators/science_sheets.dart';
+import '../generators/thinking_sheets.dart';
 import '../generators/toddler_sheets.dart';
 import '../generators/topic_sheets.dart';
 import 'models.dart';
@@ -317,6 +318,9 @@ class WorksheetGenerator {
       WorksheetKind.flags => flags(g),
       WorksheetKind.capitals => capitals(g),
       WorksheetKind.topicQuiz => <Question>[],
+      WorksheetKind.wordThinking => wordThinking(g),
+      WorksheetKind.numberThinking => numberThinking(g),
+      WorksheetKind.shapeThinking => shapeThinking(g),
     };
     return Worksheet(
       id: idFor(date, kind),

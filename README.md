@@ -28,12 +28,17 @@ learning cards and the worksheets so each thing is met several ways:
   day, plus yesterday's for review. Sight Words, Sound It Out and Trace &
   Write use only these. Add or Take Away (within 5) every day.
 - **K–Grade 5**: 1 learning session, then 2 Math, 2 Reading, 1 Science,
-  1 Puzzle, 1 Writing, 1 Geography, rotating daily. Same day = same sheets
-  on every device.
+  1 Puzzle, 1 Writing, 1 Geography and 1 Thinking Skills, rotating daily.
+  Same day = same sheets on every device.
+- **Learn more** (below the plan): picture-card sessions to open any time,
+  chosen by age (`lib/generators/learn_more.dart`). Age 2–3: letters,
+  numbers, shapes, colors, animals (+ fruits for Age 3); Pre-K adds sight
+  words and three-letter words (sounds read aloud), body and a few
+  countries; K+ drops the toddler basics and adds more topics each grade.
 - A bonus sheet (not for Age 2) and the rewards pill (if grown-ups enabled rewards).
 
 ## Worksheets
-**82 worksheet kinds** across 6 subjects. Each has a level range and gets
+**85 worksheet kinds** across 7 subjects. Each has a level range and gets
 harder with the level.
 
 Per level: Age 2: 3 · Age 3: 16 · Pre-K: 25 · K: 29 · G1: 41 ·
@@ -49,6 +54,7 @@ Questions per sheet: Age 2–3: 3 · Pre-K: 5 · K: 6 · G1–2: 7 · G3–5: 8.
 | Puzzles | odd one out, shadow match, patterns, mini sudoku, number riddles, missing number |
 | Writing | tracing, spelling, fix the sentence |
 | Geography | land & water (Pre-K–G2), continents & oceans (K–G5), map skills (G1–5), flags (G1–4), capital cities (G3–5) |
+| Thinking Skills (K–5) | CogAT-style reasoning, one battery per sheet. **Word Thinking**: analogies, sentence completion, classification. **Number Thinking**: number analogies, number puzzles, number series. **Shape Thinking**: figure matrices (2×2; 3×3 from G4), figure classification, paper folding (folded twice from G4). K–2 are pictures read aloud (3 choices in K); G3+ use words and harder rules |
 
 Question types: multiple choice, matching (**tap or drag**), reading passages,
 finger tracing. Grade 1+ math has a **scratch pad** for rough work.
@@ -111,6 +117,9 @@ A periodic feedback-review agent is planned but **not set up yet**.
 - Geography facts and capitals: `lib/content/geography.dart`
 - Topic cards: `lib/content/topics.dart`; older-grade depth: `lib/content/topic_depth.dart`
 - Passages, word lists, sentences: `lib/content/reading.dart`
+- Thinking Skills words and pictures: `lib/content/thinking.dart`; figures and
+  paper folding: `lib/content/figures.dart` (figures are spec strings like
+  `fig:triangle.1.2.o.1.b`, drawn by `Pic`)
 - Generators: `lib/generators/`; worksheet kinds and levels: `lib/models/models.dart`
 - Daily rotation: `lib/models/generator.dart`
 
@@ -122,6 +131,9 @@ All passages and questions are written for this app.
 - Super Teacher Worksheets: https://www.superteacherworksheets.com/comprehension.html,
   5th grade: https://www.superteacherworksheets.com/fifth-grade-worksheets-5th.html
 - Dolch sight word lists (public domain); Natural Earth (public domain); Wikimedia Commons
+- CogAT question types (K–5), as outlined at
+  https://www.testingmom.com/tests/cogat-test/cogat-practice-tests-for-all-grade-levels/
+  — structure only; every Thinking Skills question is original
 
 ## Run and test
 ```bash

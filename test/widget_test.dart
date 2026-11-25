@@ -50,7 +50,9 @@ void main() {
       final sheets = WorksheetGenerator.forDay(DateTime(2026, 3, 1), level);
       expect(sheets.map((w) => w.kind).toSet().length, sheets.length);
       if (level.atMost(Level.age3)) continue; // toddlers: a few picture activities
-      expect(sheets.map((w) => w.kind.category).toSet().length, Category.values.length,
+      // Thinking Skills starts in Kindergarten.
+      final expected = Category.values.length - (level == Level.preK ? 1 : 0);
+      expect(sheets.map((w) => w.kind.category).toSet().length, expected,
           reason: '${level.name} is missing a category');
     }
   });

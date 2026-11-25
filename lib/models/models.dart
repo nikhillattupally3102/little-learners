@@ -35,7 +35,8 @@ enum Category {
   science('Science', '🔬', AppColors.mint, 1),
   puzzles('Puzzles', '🧩', AppColors.grape, 1),
   writing('Writing', '✏️', AppColors.tangerine, 1),
-  geography('Geography', '🌍', AppColors.lime, 1);
+  geography('Geography', '🌍', AppColors.lime, 1),
+  thinking('Thinking Skills', '🧠', AppColors.grape, 1);
 
   const Category(this.title, this.emoji, this.color, this.dailyCount);
   final String title;
@@ -726,6 +727,33 @@ enum WorksheetKind {
     Category.puzzles,
     Level.age2,
     Level.age3,
+  ),
+  // ---------------------------------------------------- thinking skills
+  // Reasoning puzzles in the style of the CogAT's three batteries: pictures
+  // read aloud for K–2, words and numbers from Grade 3.
+  wordThinking(
+    'Word Thinking',
+    '💭',
+    AppColors.bubblegum,
+    Category.thinking,
+    Level.kindergarten,
+    Level.grade5,
+  ),
+  numberThinking(
+    'Number Thinking',
+    '🧮',
+    AppColors.sky,
+    Category.thinking,
+    Level.kindergarten,
+    Level.grade5,
+  ),
+  shapeThinking(
+    'Shape Thinking',
+    '🔷',
+    AppColors.grape,
+    Category.thinking,
+    Level.kindergarten,
+    Level.grade5,
   );
 
   const WorksheetKind(
@@ -1026,6 +1054,26 @@ class SudokuVisual extends Visual {
 
   /// 16 cells, row by row. '' is an empty cell; '?' is the cell to solve.
   final List<String> cells;
+}
+
+/// Cells laid out in rows, for analogies and figure matrices (CogAT style).
+/// '?' is the blank. [joins] are drawn between the cells of each row, e.g.
+/// ['→'] for "this goes with that", ['+', '='] for a balance puzzle, or
+/// none for a plain grid.
+class MatrixVisual extends Visual {
+  const MatrixVisual(this.cells, {this.cols = 2, this.joins = const ['→']});
+  final List<String> cells;
+  final int cols;
+  final List<String> joins;
+}
+
+/// Paper folding: a square sheet is folded ('v' = left half onto the right,
+/// 'h' = top half onto the bottom, 'vh' = both), then [holes] are punched
+/// through the folded paper. Holes are (row, column) on a 4×4 grid.
+class FoldVisual extends Visual {
+  const FoldVisual(this.fold, this.holes);
+  final String fold;
+  final List<(int, int)> holes;
 }
 
 class ShadowVisual extends Visual {

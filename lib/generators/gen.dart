@@ -320,6 +320,8 @@ class Gen {
     PassageVisual() => v.title,
     WordPictureVisual() => '${v.word}${v.missingIndex}',
     ShadowVisual() => v.emoji,
+    MatrixVisual() => v.cells.join('|'),
+    FoldVisual() => '${v.fold}${v.holes}',
     _ => '',
   };
 }
