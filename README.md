@@ -85,13 +85,22 @@ with the grade: equal groups (G2) → skip counting (G3) → tens and ones (G4)
 
 ### "Let's learn!" before a new topic (`lib/generators/lessons.dart`)
 
-Science and geography sheets (Pre-K up) open with one or two pages of picture
-cards that teach exactly what the sheet then asks ("A rabbit lives in a
-burrow.", "The capital of Japan is Tokyo."), read aloud card by card. They
-show the first time a child gets that kind of sheet, and again after 14 days
-without one (`Progress.needsLesson`). Fact cards are built from the facts the
-questions are tagged with; list-based sheets (animal homes, sink or float…)
-from the items on the sheet.
+Every sheet from Pre-K up opens with a short lesson the first time a child
+gets that kind of sheet, and again after 14 days without one
+(`Progress.needsLesson`):
+
+- **Science, geography and word sheets**: one or two pages of picture cards,
+  read aloud card by card, teaching exactly what the sheet then asks ("A
+  rabbit lives in a burrow.", "Hot is the opposite of cold.", "Tomato has 3
+  claps: to-ma-to.").
+- **Math**: a worked example with different numbers from the sheet (count
+  on, carry and borrow, read a clock, count coins…) —
+  `lib/generators/lesson_examples.dart`.
+- **Puzzles, thinking and writing**: how to play (odd one out, sudoku,
+  analogies, fixing a sentence…).
+
+No lesson: tracing (it shows the strokes), times tables and division (they
+open with a worked example every time), the GT test, and toddler sheets.
 
 ### Variety rules (`lib/generators/gen.dart`)
 Seeded per day/level/kind. At most one matching round per sheet, no repeated

@@ -33,6 +33,13 @@ void main() {
       ),
     );
     await tester.pump(const Duration(milliseconds: 600));
+    // A new child sees the "Let's learn!" page first.
+    expect(tester.takeException(), isNull);
+    final start = find.text("Got it! Let's practice");
+    if (start.evaluate().isNotEmpty) {
+      await tester.tap(start);
+      await tester.pump(const Duration(milliseconds: 600));
+    }
   }
 
   testWidgets('Grade 1 maths shows rough-work paper', (tester) async {

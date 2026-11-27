@@ -71,6 +71,27 @@ class _LessonCard extends StatelessWidget {
   final Color accent;
   final bool lit;
 
+  /// A picture, a few pictures (🔥🧊), or a word or letters ("the", "A B C D").
+  Widget _picture() {
+    final size = height * .4;
+    if (Pic.has(c.pic)) return Pic(c.pic, size: size);
+    final chars = c.pic.characters.toList();
+    if (chars.length > 1 && chars.every(Pic.has)) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [for (final ch in chars) Pic(ch, size: size * .8)],
+      );
+    }
+    return Text(
+      c.pic,
+      style: TextStyle(
+        fontSize: size * .7,
+        fontWeight: FontWeight.w700,
+        color: AppColors.darker(accent, .25),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) => AnimatedContainer(
     duration: const Duration(milliseconds: 250),
@@ -92,10 +113,7 @@ class _LessonCard extends StatelessWidget {
       children: [
         Expanded(
           flex: 5,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Pic(c.pic, size: height * .4),
-          ),
+          child: FittedBox(fit: BoxFit.scaleDown, child: _picture()),
         ),
         if (c.label.isNotEmpty)
           FittedBox(

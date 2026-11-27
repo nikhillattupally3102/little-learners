@@ -1095,7 +1095,7 @@ class LessonVisual extends Visual {
 }
 
 class LessonCard {
-  const LessonCard(this.pic, this.label, this.sentence);
+  const LessonCard(this.pic, this.label, this.sentence, {this.say});
 
   /// An emoji or picture spec.
   final String pic;
@@ -1105,6 +1105,9 @@ class LessonCard {
 
   /// What is read aloud and shown small ("A rabbit lives in a burrow.").
   final String sentence;
+
+  /// Read aloud instead of [sentence] when they differ (letter sounds).
+  final String? say;
 }
 
 class MatrixVisual extends Visual {

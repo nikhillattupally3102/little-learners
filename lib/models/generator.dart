@@ -372,11 +372,15 @@ class WorksheetGenerator {
       kind: kind,
       questions: questions,
       level: level,
-      lesson:
-          level.atLeast(Level.preK) &&
-              (kind.category == Category.science ||
-                  kind.category == Category.geography)
-          ? lessonFor(kind, questions)
+      lesson: hasLesson(kind, level)
+          ? lessonFor(
+              kind,
+              questions,
+              Gen(
+                Random(int.parse(key) * 37 + level.index * 101 + kind.index),
+                level,
+              ),
+            )
           : const [],
       // Toddler sheets are named after what they practise today.
       title: switch (kind) {

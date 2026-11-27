@@ -31,12 +31,19 @@ void main() {
           }
         }
       }
-      if (n > 0) out.writeln('${level.name.padRight(13)} ${(100 * rep / n).round()}% repeats of $n');
+      if (n > 0)
+        out.writeln(
+          '${level.name.padRight(13)} ${(100 * rep / n).round()}% repeats of $n',
+        );
     }
     final worst = byKind.entries.where((e) => e.value.$2 >= 15).toList()
-      ..sort((a, b) => (b.value.$1 / b.value.$2).compareTo(a.value.$1 / a.value.$2));
+      ..sort(
+        (a, b) => (b.value.$1 / b.value.$2).compareTo(a.value.$1 / a.value.$2),
+      );
     for (final e in worst.take(30)) {
-      out.writeln('${(100 * e.value.$1 / e.value.$2).round().toString().padLeft(3)}%  ${e.key} (${e.value.$2})');
+      out.writeln(
+        '${(100 * e.value.$1 / e.value.$2).round().toString().padLeft(3)}%  ${e.key} (${e.value.$2})',
+      );
     }
     // ignore: avoid_print
     print(out);
