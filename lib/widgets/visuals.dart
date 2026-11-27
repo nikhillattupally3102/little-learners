@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'figure_views.dart';
+import 'lesson_cards.dart';
 
 import 'pic.dart';
 
@@ -47,6 +48,12 @@ class QuestionVisual extends StatelessWidget {
         );
       case TextVisual(:final text, :final emoji):
         return TextCard(text, emoji: emoji, accent: accent);
+      case LessonVisual():
+        return LessonCards(
+          visual as LessonVisual,
+          accent: accent,
+          segment: segment,
+        );
       default:
     }
     final child = switch (visual) {
@@ -117,6 +124,7 @@ class QuestionVisual extends StatelessWidget {
       ShadowVisual(:final emoji) => PopIn(child: ShadowEmoji(emoji, size: 150)),
       MatrixVisual() => MatrixView(visual as MatrixVisual, accent: accent),
       FoldVisual() => FoldView(visual as FoldVisual, accent: accent),
+      LessonVisual() => const SizedBox(), // drawn above
       MixedVisual(:final items) => SizedBox(
         width: 460,
         child: Wrap(

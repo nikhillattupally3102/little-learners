@@ -806,6 +806,7 @@ class Worksheet {
     required this.kind,
     required this.questions,
     this.level,
+    this.lesson = const [],
     String? title,
     String? emoji,
     Color? color,
@@ -820,6 +821,11 @@ class Worksheet {
   /// The difficulty this worksheet was generated at (may differ from the
   /// child's grade when difficulty adapts).
   final Level? level;
+
+  /// "Let's learn!" pages that teach what the questions ask about, shown
+  /// before them when the child is new to (or hasn't done in a while) this
+  /// kind of sheet.
+  final List<ExampleQuestion> lesson;
 
   final String? _title;
   final String? _emoji;
@@ -1081,6 +1087,26 @@ class SudokuVisual extends Visual {
 /// '?' is the blank. [joins] are drawn between the cells of each row, e.g.
 /// ['→'] for "this goes with that", ['+', '='] for a balance puzzle, or
 /// none for a plain grid.
+/// "Let's learn!" picture cards, read aloud one by one before a sheet's
+/// questions.
+class LessonVisual extends Visual {
+  const LessonVisual(this.cards);
+  final List<LessonCard> cards;
+}
+
+class LessonCard {
+  const LessonCard(this.pic, this.label, this.sentence);
+
+  /// An emoji or picture spec.
+  final String pic;
+
+  /// A word or two under the picture ("🕳️ Burrow").
+  final String label;
+
+  /// What is read aloud and shown small ("A rabbit lives in a burrow.").
+  final String sentence;
+}
+
 class MatrixVisual extends Visual {
   const MatrixVisual(this.cells, {this.cols = 2, this.joins = const ['→']});
   final List<String> cells;

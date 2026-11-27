@@ -554,6 +554,9 @@ class Gen {
   static bool _isPicture(int r) =>
       (r >= 0x1F000 || (r >= 0x2600 && r <= 0x27BF)) && !_marks.contains(r);
 
+  /// The things [text] names: its pictures and its main words (stemmed).
+  static Set<String> subjectsOf(String text) => _subjects(text);
+
   static Set<String> _subjects(String text) {
     final out = <String>{};
     // Pictures (emoji) name things too.

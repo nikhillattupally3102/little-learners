@@ -56,7 +56,10 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
   final _segment = ValueNotifier<int>(-1);
   final _readSegment = ValueNotifier<int>(-1);
 
-  Worksheet get ws => widget.worksheet;
+  /// The sheet as played: with its "Let's learn!" pages first if the child
+  /// is new to it or hasn't done one in a while.
+  Worksheet? _ws;
+  Worksheet get ws => _ws ?? widget.worksheet;
   Color get color => ws.color;
 
   @override
@@ -67,6 +70,30 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
       ProgressScope.read(context).markSeen(widget.worksheet.questions);
       _autoSpeak();
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_ws != null) return;
+    final w = widget.worksheet;
+    final progress = ProgressScope.read(context);
+    final child = progress.active;
+    final learn =
+        w.lesson.isNotEmpty &&
+        child != null &&
+        progress.needsLesson(child, w.kind);
+    _ws = learn
+        ? Worksheet(
+            id: w.id,
+            kind: w.kind,
+            questions: [...w.lesson, ...w.questions],
+            level: w.level,
+            title: w.title,
+            emoji: w.emoji,
+            color: w.color,
+          )
+        : w;
   }
 
   @override
@@ -396,6 +423,10 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
                               ExampleQuestion() => _ExampleView(
                                 q: q,
                                 test: _test,
+                                more:
+                                    !_test &&
+                                    _index + 1 < ws.questions.length &&
+                                    ws.questions[_index + 1] is ExampleQuestion,
                                 color: color,
                                 segment: _segment,
                                 onReplay: _speakQuestion,
@@ -591,7 +622,11 @@ class _ExampleView extends StatelessWidget {
     required this.onReadAloud,
     required this.onDone,
     this.test = false,
+    this.more = false,
   });
+
+  /// Another learning page follows this one.
+  final bool more;
 
   /// A part of the GT test starts here (not a worked example).
   final bool test;
@@ -647,29 +682,31 @@ class _ExampleView extends StatelessWidget {
           builder: (context, spoken, _) => Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              for (final (i, step) in q.steps.indexed)
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 250),
-                  margin: const EdgeInsets.only(bottom: 6),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    // Segment 0 is the title; steps follow.
-                    color: spoken == i + 1
-                        ? color.withValues(alpha: .22)
-                        : Colors.white,
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: color.withValues(alpha: .35)),
-                  ),
-                  child: Text(
-                    '${i + 1}.  $step',
-                    style: text.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
+              // Lesson cards show their own sentences.
+              if (q.visual is! LessonVisual)
+                for (final (i, step) in q.steps.indexed)
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    margin: const EdgeInsets.only(bottom: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      // Segment 0 is the title; steps follow.
+                      color: spoken == i + 1
+                          ? color.withValues(alpha: .22)
+                          : Colors.white,
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: color.withValues(alpha: .35)),
+                    ),
+                    child: Text(
+                      '${i + 1}.  $step',
+                      style: text.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
-                ),
             ],
           ),
         ),
@@ -686,9 +723,19 @@ class _ExampleView extends StatelessWidget {
             ),
           ),
           icon: Icon(
-            test ? Icons.play_arrow_rounded : Icons.thumb_up_alt_rounded,
+            test
+                ? Icons.play_arrow_rounded
+                : more
+                ? Icons.arrow_forward_rounded
+                : Icons.thumb_up_alt_rounded,
           ),
-          label: Text(test ? "I'm ready! Start" : "Got it! Let's practice"),
+          label: Text(
+            test
+                ? "I'm ready! Start"
+                : more
+                ? 'Next'
+                : "Got it! Let's practice",
+          ),
         ),
       ],
     );

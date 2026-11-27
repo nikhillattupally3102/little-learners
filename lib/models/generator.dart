@@ -5,6 +5,7 @@ import '../content/science.dart';
 import '../content/topics.dart';
 import '../generators/gen.dart';
 import '../generators/learn_more.dart';
+import '../generators/lessons.dart';
 import '../generators/geography_sheets.dart';
 import '../generators/math_formats.dart';
 import '../generators/math_sheets.dart';
@@ -371,6 +372,12 @@ class WorksheetGenerator {
       kind: kind,
       questions: questions,
       level: level,
+      lesson:
+          level.atLeast(Level.preK) &&
+              (kind.category == Category.science ||
+                  kind.category == Category.geography)
+          ? lessonFor(kind, questions)
+          : const [],
       // Toddler sheets are named after what they practise today.
       title: switch (kind) {
         WorksheetKind.tLetters => 'Letters ${toddler!.letterNames}',

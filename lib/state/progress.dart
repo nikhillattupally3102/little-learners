@@ -195,6 +195,24 @@ class Progress extends ChangeNotifier {
   Set<String> _unsynced(String id) =>
       (_prefs.getStringList('${id}_unsynced') ?? const []).toSet();
 
+  /// Days without a kind of sheet after which its "Let's learn!" pages
+  /// come back.
+  static const lessonGap = 14;
+
+  /// Whether [p] should see the lesson before a [kind] sheet: they have
+  /// never done one, or not for [lessonGap] days.
+  bool needsLesson(Profile p, WorksheetKind kind, {DateTime? now}) {
+    DateTime? last;
+    for (final r in _resultsFor(p.id)) {
+      if (r.kind == kind.name &&
+          (last == null || r.completedAt.isAfter(last))) {
+        last = r.completedAt;
+      }
+    }
+    if (last == null) return true;
+    return (now ?? DateTime.now()).difference(last).inDays >= lessonGap;
+  }
+
   int starsOf(Profile p) {
     final best = <String, int>{};
     for (final r in _resultsFor(p.id)) {

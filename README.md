@@ -83,6 +83,16 @@ card (`ExampleQuestion`, read aloud step by step, not scored) that grows
 with the grade: equal groups (G2) → skip counting (G3) → tens and ones (G4)
 → splitting a 2-digit number (G5); sharing (G3) → splitting (G4–5).
 
+### "Let's learn!" before a new topic (`lib/generators/lessons.dart`)
+
+Science and geography sheets (Pre-K up) open with one or two pages of picture
+cards that teach exactly what the sheet then asks ("A rabbit lives in a
+burrow.", "The capital of Japan is Tokyo."), read aloud card by card. They
+show the first time a child gets that kind of sheet, and again after 14 days
+without one (`Progress.needsLesson`). Fact cards are built from the facts the
+questions are tagged with; list-based sheets (animal homes, sink or float…)
+from the items on the sheet.
+
 ### Variety rules (`lib/generators/gen.dart`)
 Seeded per day/level/kind. At most one matching round per sheet, no repeated
 words, no back-to-back same prompts, and a 21-day "seen" memory of question
