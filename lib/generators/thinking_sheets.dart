@@ -524,7 +524,7 @@ Question _series(Gen g) {
 List<Question> shapeThinking(Gen g, [int? n]) => g.mix(n ?? g.count, [
   () => g.atLeast(Level.grade4) && g.chance(.5) ? _matrix3(g) : _matrix2(g),
   () => _figureGroup(g),
-  () => _paperFold(g),
+  if (g.atLeast(Level.grade1)) () => _paperFold(g),
 ]);
 
 int _colorCount(Gen g) => g.atMost(Level.kindergarten) ? 4 : 5;

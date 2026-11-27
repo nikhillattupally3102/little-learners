@@ -82,7 +82,9 @@ class _WorksheetScreenState extends State<WorksheetScreen> {
   bool get _isListeningTask {
     final q = ws.questions[_index];
     // Toddlers can't read: every question is read aloud.
-    if ((ws.level ?? Level.grade5).atMost(Level.age3)) return true;
+    // Toddlers to Kindergarten can't read yet (or only just): every
+    // question is read aloud.
+    if ((ws.level ?? Level.grade5).atMost(Level.kindergarten)) return true;
     if (q is ExampleQuestion) return true;
     // Thinking puzzles for K–2 are read aloud, like the real test.
     if (ws.kind.category == Category.thinking &&

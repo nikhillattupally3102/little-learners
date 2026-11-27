@@ -44,7 +44,7 @@ List<T> _near<T>(
 
 List<Question> matchPairs(Gen g) {
   final pool = [for (final grp in pictureGroups) ...grp.$3];
-  const pairs = Gen.matchCount;
+  final pairs = g.pairs;
   final opts = g.byLevel({Level.age2: 2, Level.age3: 3, Level.preK: 4});
 
   final match = g.keep(
@@ -1331,7 +1331,7 @@ List<Question> tracing(Gen g, {PreKWords? today}) {
               count: g.level == Level.age3 ? 2 : 3,
             )
           : g.match('Match each letter to its picture!', [
-              for (final l in g.pick(traceLetters.keys, Gen.matchCount))
+              for (final l in g.pick(traceLetters.keys, g.pairs))
                 (MatchItem(l), MatchItem('', traceLetters[l]!.$1)),
             ]);
       return [
@@ -1349,7 +1349,7 @@ List<Question> tracing(Gen g, {PreKWords? today}) {
         word(w),
         letter(letters[2], lower: true),
         g.match('Match the big and small letters!', [
-          for (final l in g.pick('ABDEFGHJLMNQRT'.split(''), Gen.matchCount))
+          for (final l in g.pick('ABDEFGHJLMNQRT'.split(''), g.pairs))
             (MatchItem(l), MatchItem(l.toLowerCase())),
         ]),
       ];
@@ -1404,7 +1404,7 @@ List<Question> spelling(Gen g) {
           visual: WordPictureVisual(emoji, word, missing),
           answer: word[missing],
           wrong: 'ABCDEFGHIJKLMNOPRSTUVWY'.split(''),
-          count: 4,
+          count: g.atLeast(Level.grade1) ? 4 : 3,
         );
       },
       // Choose the right spelling for the picture.
@@ -1429,17 +1429,18 @@ List<Question> spelling(Gen g) {
           count: 3,
         );
       },
-      // Unscramble.
-      () {
-        final (emoji, word, wrong) = g.one(words);
-        return g.choice(
-          prompt: 'Put the letters in order to spell the picture!',
-          visual: TextVisual(_scramble(g, word), emoji: emoji),
-          answer: word,
-          wrong: [_scramble(g, word).replaceAll(' ', ''), ...wrong],
-          count: 3,
-        );
-      },
+      // Unscramble (Grade 1).
+      if (g.atLeast(Level.grade1))
+        () {
+          final (emoji, word, wrong) = g.one(words);
+          return g.choice(
+            prompt: 'Put the letters in order to spell the picture!',
+            visual: TextVisual(_scramble(g, word), emoji: emoji),
+            answer: word,
+            wrong: [_scramble(g, word).replaceAll(' ', ''), ...wrong],
+            count: 3,
+          );
+        },
       if (g.atLeast(Level.grade1))
         () {
           final (emoji, word, _) = g.one(words);

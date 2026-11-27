@@ -117,7 +117,7 @@ List<Question> listen(Gen g) {
 // ---------------------------------------------------------------- letters
 
 List<Question> letters(Gen g) {
-  final n = g.level == Level.preK ? 3 : 4;
+  const n = 3;
   return g.mix(g.count, [
     () {
       final letter = g.one(letterWords.keys.where((l) => l != 'X').toList());
@@ -164,19 +164,7 @@ List<Question> letters(Gen g) {
           visual: TextVisual(l),
           answer: l.toLowerCase(),
           wrong: _alphabet.toLowerCase().split(''),
-          count: 4,
-        );
-      },
-    if (g.level == Level.kindergarten)
-      () {
-        final (emoji, word) = g.one(pictureSpellWords);
-        final last = word[word.length - 1];
-        return g.choice(
-          prompt: 'What sound does ${word.toLowerCase()} end with?',
-          visual: EmojiVisual(emoji, word.toLowerCase()),
-          answer: last,
-          wrong: _alphabet.split(''),
-          count: 4,
+          count: 3,
         );
       },
   ]);
@@ -282,28 +270,30 @@ List<Question> soundOut(Gen g, {PreKWords? today}) {
         count: 3,
       );
     },
-    () {
-      final (emoji, spelled) = g.one(soundOutWords);
-      final word = spelled.replaceAll('-', '').toUpperCase();
-      return g.choice(
-        prompt: 'What is the middle sound?',
-        visual: WordPictureVisual(emoji, word, 1),
-        answer: word[1],
-        wrong: const ['A', 'E', 'I', 'O', 'U'],
-        count: 3,
-      );
-    },
-    () {
-      final families = g.pick(wordFamilies, 2);
-      final ending = families[0].first.substring(1);
-      return g.choice(
-        prompt: 'Which word is in the -$ending family?',
-        visual: TextVisual('-$ending', emoji: '🏠'),
-        answer: g.one(families[0]),
-        wrong: families[1],
-        count: 3,
-      );
-    },
+    if (g.atLeast(Level.grade1))
+      () {
+        final (emoji, spelled) = g.one(soundOutWords);
+        final word = spelled.replaceAll('-', '').toUpperCase();
+        return g.choice(
+          prompt: 'What is the middle sound?',
+          visual: WordPictureVisual(emoji, word, 1),
+          answer: word[1],
+          wrong: const ['A', 'E', 'I', 'O', 'U'],
+          count: 3,
+        );
+      },
+    if (g.atLeast(Level.grade1))
+      () {
+        final families = g.pick(wordFamilies, 2);
+        final ending = families[0].first.substring(1);
+        return g.choice(
+          prompt: 'Which word is in the -$ending family?',
+          visual: TextVisual('-$ending', emoji: '🏠'),
+          answer: g.one(families[0]),
+          wrong: families[1],
+          count: 3,
+        );
+      },
     if (g.atLeast(Level.kindergarten))
       () => g.choice(
         prompt: 'Which one is a real word?',
@@ -380,7 +370,7 @@ List<Question> rhymes(Gen g) {
 // -------------------------------------------------------------- vocabulary
 
 List<Question> wordMatch(Gen g) {
-  const pairs = Gen.matchCount;
+  final pairs = g.pairs;
   final pool = listenWords
       .where((w) => w.$2.length <= (g.level == Level.preK ? 4 : 8))
       .toList();
@@ -427,7 +417,7 @@ List<Question> wordMatch(Gen g) {
 
 List<Question> opposites(Gen g) {
   final pictures = g.atMost(Level.kindergarten);
-  const pairs = Gen.matchCount;
+  final pairs = g.pairs;
   final match = g.keep(
     g.match('Match the opposites!', [
       for (final (a, ae, b, be) in g.pick(oppositePairs, pairs))
@@ -463,19 +453,20 @@ List<Question> opposites(Gen g) {
         speech: [sentence.replaceAll('___', 'blank')],
       );
     },
-    () {
-      final p = g.one(oppositePairs);
-      final wrongPairs = [
-        for (final q in g.pick(oppositePairs.where((q) => q != p), 2))
-          '${p.$1} – ${q.$3}',
-      ];
-      return g.choice(
-        prompt: 'Which pair are opposites?',
-        visual: const EmojiVisual('↔️'),
-        answer: '${p.$1} – ${p.$3}',
-        wrong: wrongPairs,
-      );
-    },
+    if (g.atLeast(Level.grade1))
+      () {
+        final p = g.one(oppositePairs);
+        final wrongPairs = [
+          for (final q in g.pick(oppositePairs.where((q) => q != p), 2))
+            '${p.$1} – ${q.$3}',
+        ];
+        return g.choice(
+          prompt: 'Which pair are opposites?',
+          visual: const EmojiVisual('↔️'),
+          answer: '${p.$1} – ${p.$3}',
+          wrong: wrongPairs,
+        );
+      },
   ]);
   return [...choices.take(2), match, ...choices.skip(2)];
 }
@@ -508,16 +499,17 @@ List<Question> sightWords(Gen g, {PreKWords? today}) {
         wrong: wrong,
       );
     },
-    () {
-      final word = g.one(list.where((w) => w.length >= 3).toList());
-      return g.choice(
-        prompt: 'Which word is spelled like this?',
-        visual: TextVisual(word.split('').join(' - ')),
-        answer: word,
-        wrong: list.where((w) => w.length == word.length || w[0] == word[0]),
-        count: 3,
-      );
-    },
+    if (g.atLeast(Level.grade1))
+      () {
+        final word = g.one(list.where((w) => w.length >= 3).toList());
+        return g.choice(
+          prompt: 'Which word is spelled like this?',
+          visual: TextVisual(word.split('').join(' - ')),
+          answer: word,
+          wrong: list.where((w) => w.length == word.length || w[0] == word[0]),
+          count: 3,
+        );
+      },
     () {
       final word = g.one(list.where((w) => w.length >= 3).toList());
       final fakes = {for (var i = 0; i < 3; i++) _scramble(g, word)}
@@ -727,7 +719,7 @@ List<Question> compounds(Gen g) {
             valid.contains('${q.$1}${p.$2}'),
       );
       if (!clash) picks.add(p);
-      if (picks.length == Gen.matchCount) break;
+      if (picks.length == g.pairs) break;
     }
     return g.match('Join the words to make compound words!', [
       for (final (a, b) in picks) (MatchItem(a), MatchItem(b)),

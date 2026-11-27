@@ -492,7 +492,7 @@ enum WorksheetKind {
     '🔲',
     AppColors.sky,
     Category.puzzles,
-    Level.kindergarten,
+    Level.grade1,
     Level.grade5,
   ),
   riddles(
@@ -664,7 +664,7 @@ enum WorksheetKind {
     '🌍',
     AppColors.sky,
     Category.geography,
-    Level.kindergarten,
+    Level.grade1,
     Level.grade5,
   ),
   mapSkills(

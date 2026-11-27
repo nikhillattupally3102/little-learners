@@ -124,11 +124,14 @@ class Gen {
   /// How many pairs each matching question has (at most).
   static const matchCount = 8;
 
+  /// Pairs in a matching round: fewer for the youngest.
+  int get pairs => atMost(Level.kindergarten) ? 5 : matchCount;
+
   /// Pairs for a matching round from [available] items: fewer when the
   /// topic is small, so the sheet's other questions can each be about
   /// something new (questions often show two items: [perQuestion]).
   int matchSize(int available, {int perQuestion = 2}) =>
-      (available - perQuestion * (count - 1)).clamp(4, matchCount);
+      (available - perQuestion * (count - 1)).clamp(4, pairs);
 
   /// Whether nothing in [texts] (names, pictures) has come up on this
   /// worksheet yet.

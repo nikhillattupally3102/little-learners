@@ -53,7 +53,8 @@ List<Question> counting(Gen g) {
     Level.age2: 3,
     Level.age3: 5,
     Level.preK: 10,
-    Level.kindergarten: 15,
+    Level.kindergarten: 10,
+    Level.grade1: 15,
   });
   final options = g.byLevel({Level.age2: 2, Level.age3: 3, Level.preK: 4});
   return g.mix(g.count, [
@@ -221,7 +222,8 @@ List<Question> numberFind(Gen g) {
   final top = g.byLevel({
     Level.age3: 5,
     Level.preK: 10,
-    Level.kindergarten: 20,
+    Level.kindergarten: 10,
+    Level.grade1: 20,
   });
   final options = g.atLeast(Level.preK) ? 4 : 3;
   return g.mix(g.count, [
@@ -275,14 +277,14 @@ List<Question> numberFind(Gen g) {
 (int, int) _addPair(Gen g) {
   final a = switch (g.level) {
     Level.preK => g.between(1, 4),
-    Level.kindergarten => g.between(1, 7),
+    Level.kindergarten => g.between(1, 5),
     Level.grade1 => g.between(2, 12),
     Level.grade2 => g.between(12, 68),
     _ => g.between(120, 699),
   };
   final b = switch (g.level) {
     Level.preK => g.between(1, 5 - a),
-    Level.kindergarten => g.between(1, 10 - a),
+    Level.kindergarten => g.between(1, 8 - a),
     Level.grade1 => g.between(1, 20 - a),
     Level.grade2 => g.between(11, 99 - a),
     _ => g.between(105, 999 - a),
@@ -323,7 +325,7 @@ List<Question> addition(Gen g) {
         speech: ['$text How many $name in all?'],
       );
     },
-    if (g.atLeast(Level.kindergarten))
+    if (g.atLeast(Level.grade1))
       () {
         final (a, b) = _addPair(g);
         return g.number(
@@ -333,7 +335,7 @@ List<Question> addition(Gen g) {
           lowest: 1,
         );
       },
-    if (g.atLeast(Level.kindergarten))
+    if (g.atLeast(Level.grade1))
       () {
         final (a, b) = _addPair(g);
         final wrong = <String>{};
@@ -348,9 +350,9 @@ List<Question> addition(Gen g) {
           wrong: wrong,
         );
       },
-    if (g.level == Level.preK)
+    if (g.atMost(Level.kindergarten))
       () {
-        final n = g.between(1, 5);
+        final n = g.between(1, g.atLeast(Level.kindergarten) ? 8 : 5);
         return g.number(
           prompt: 'What is one more than $n?',
           visual: CountVisual('🟢', n),
@@ -365,7 +367,7 @@ List<Question> addition(Gen g) {
 (int, int) _subPair(Gen g) {
   final a = switch (g.level) {
     Level.preK => g.between(2, 5),
-    Level.kindergarten => g.between(3, 10),
+    Level.kindergarten => g.between(3, 8),
     Level.grade1 => g.between(6, 20),
     Level.grade2 => g.between(30, 99),
     _ => g.between(300, 999),
@@ -400,7 +402,7 @@ List<Question> subtraction(Gen g) => g.mix(g.count, [
       speech: ['$text How many are left?'],
     );
   },
-  if (g.atLeast(Level.kindergarten))
+  if (g.atLeast(Level.grade1))
     () {
       final (a, b) = _subPair(g);
       return g.number(
